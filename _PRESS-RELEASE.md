@@ -27,26 +27,28 @@ Once the project moves into development, the press release can be used as a touc
   
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
   >Our application allows people to exchange and watch videos together, no matter where they are. If users wanted to do what our application does, users would have to manually load each video and press play at the same time. 
 
 ## Problem ##
-  > Describe the problem your product solves.
-  Currently there is no application which allows users to watch the same video at the same time unless each person does it manually. Our application 
+  > Currently there is no application which allows users to watch the same video at the same time unless each person does it manually. 
   
 
 ## Solution ##
   > Describe how your product elegantly solves the problem.
+  By providing a space for our users to do all of the previously mentioned problems. 
 
 ## Quote from You ##
   > A quote from a spokesperson in your company.
+  "Now we can watch movies together without even dressing" -Jose
 
 ## How to Get Started ##
   > Describe how easy it is to get started.
+  After registering for a free account, create a room, invite your friends, and watch videos together!
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
-  "Now you can watch movies together without even dressing" -Jose
+  > "I would cry if it wasn't for JetGrizzly" 
+  "Ever since I started using JetGrizzly, I never had to worry about grizzlies sitting next to me. Now I can watch movies without worrying about my boyfriend's faulty hygiene" -Anonymous happy user
+  
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  > Go to the website!
