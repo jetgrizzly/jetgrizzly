@@ -48,7 +48,7 @@ Once the project moves into development, the press release can be used as a touc
 ## Customer Quote ##
   > "I would cry if it wasn't for JetGrizzly" 
   
-  > "Ever since I started using JetGrizzly, I never had to worry about grizzlies sitting next to me. Now I can watch movies without worrying about my boyfriend's faulty hygiene" -Anonymous happy user
+  > "Ever since I started using JetGrizzly, I never had to worry about grizzlies sitting next to me. Now I can watch movies with my boyfriend without having to suffer his faulty hygiene" -Anonymous happy user
   
 
 ## Closing and Call to Action ##
