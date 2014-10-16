@@ -95,9 +95,3 @@ angular.module('jetgrizzlyApp', [])
   };
 });
 
-<<<<<<< HEAD
->>>>>>> (feat) Made directive for adding youtube link and embedding into index.html
-=======
-
-
->>>>>>> (feat) Can update YouTube Player on index.html with iFrame
