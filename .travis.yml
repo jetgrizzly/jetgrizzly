@@ -5,5 +5,14 @@ before_install:
   - gem install sass
   - gem install compass
 before_script:
-  - 'npm install -g bower grunt-cli'
-  - 'bower install'
+  - npm install -g bower grunt-cli
+  - bower install
+deploy:
+  provider: heroku
+  api_key:
+    secure: Wvfd5uli1OrtJB2mM0vlqYCvTXemQtAPwiub6MTPmndWD23qbJqYZKie19u5b9E1PtKZKPXJepFUiA9qCKuZBPFlWIBHdFPGQ/LCnIsP6O5IqcBsaXo+1uaN3067ZKjp/5RU8yhuQoDEPJIV2Y/c/0mWzzjYxbU5Jkr4vVgynbY=
+  app:
+    master: jetgrizzly
+    develop: jetgrizzlydev
+  on:
+    repo: jetgrizzly/jetgrizzly
