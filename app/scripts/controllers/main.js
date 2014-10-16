@@ -23,4 +23,3 @@ angular.module('jetgrizzlyApp')
       $scope.userQueue.push(item);
     };
   });
-
