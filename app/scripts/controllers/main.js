@@ -15,3 +15,11 @@ angular.module('jetgrizzlyApp')
       'Karma'
     ];
   });
+
+angular.module('jetgrizzlyApp')
+  .controller('VideoQueueController', function ($scope) {
+    $scope.userQueue = [];
+    $scope.addToQueue = function(item) {
+      $scope.userQueue.push(item);
+    };
+  });

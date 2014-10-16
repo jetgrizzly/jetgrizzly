@@ -8,5 +8,4 @@
  *
  * Main module of the application.
  */
-angular
-  .module('jetgrizzlyApp', []);
+angular.module('jetgrizzlyApp', []);
