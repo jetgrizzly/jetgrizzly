@@ -37,9 +37,9 @@ angular.module('jetgrizzlyApp')
     var onlineUsers = 0;
 
     //Create firebase references
-    var listRef = new Firebase('https://blistering-heat-6745.firebaseio.com/presence/');
+    var listRef = new window.Firebase('https://blistering-heat-6745.firebaseio.com/presence/');
     var userRef = listRef.push(); 
-    var presenceRef = new Firebase('https://blistering-heat-6745.firebaseio.com/.info/connected');
+    var presenceRef = new window.Firebase('https://blistering-heat-6745.firebaseio.com/.info/connected');
 
     //Add ourselves to the presence list when online
     presenceRef.on('value', function(snapshot) {
