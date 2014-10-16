@@ -1,4 +1,4 @@
-# Project Name #
+# jetgrizzly #
 
 <!-- 
 > This material was originally posted [here](http://www.quora.com/What-is-Amazons-approach-to-product-development-and-product-management). It is reproduced here for posterities sake.
@@ -15,36 +15,28 @@ Oh, and I also like to write press-releases in what I call "Oprah-speak" for mai
 
 Once the project moves into development, the press release can be used as a touchstone; a guiding light. The product team can ask themselves, "Are we building what is in the press release?" If they find they're spending time building things that aren't in the press release (overbuilding), they need to ask themselves why. This keeps product development focused on achieving the customer benefits and not building extraneous stuff that takes longer to build, takes resources to maintain, and doesn't provide real customer benefit (at least not enough to warrant inclusion in the press release).
  -->
- 
-## Heading ##
-  > A website where you and your friends can get together online and watch YouTube videos simultaneously as if you were in the same room. 
-
-## Sub-Heading ##
-  > For a group of people who want to get together to watch videos online. 
-  
-  
 
 ## Summary ##
-  > Our application allows people to exchange and watch videos together, no matter where they are. If users wanted to do what our application does, users would have to manually load each video and press play at the same time. 
+  > Jetgrizzly provides a virtual space for you to exchange and watch videos with anyone from around the world. We feature a democratic voting system that allows the best and most popular content to rise to the top. We aim to provide an open, accessible space for people around the world to meet and exchange meaningful content and cat videos.
 
 ## Problem ##
-  > Currently there is no application which allows users to watch the same video at the same time unless each person does it manually. 
+  > The options that currently exist for exchanging and watching videos online require invitations and prior relationship with your intended viewers.
   
-
 ## Solution ##
-  > By providing a space for our users to do all of the previously mentioned problems. 
+  > Jetgrizzly provides you a way to meet and exchange videos with strangers while ensuring that quality content rises to the top. User reputation is taken in to account to organize the priority of the video queue. We provide the layer to ensure you have a great viewing experience! 
 
 ## Quote from You ##
-  > "Now we can watch movies together without even dressing" -Jose
+  > "Now we can watch movies together without even dressing." -Jose
+  > "This is better than the Facebook." - Mark Zuckerberg
+  > "This is the future of technology." - Elon Musk
 
 ## How to Get Started ##
-  > After registering for a free account, create a room, invite your friends, and watch videos together!
+  > Visit our site and get to viewing! If you want to contribute videos, simply add a youtube URL to the queue and your fellow audience members will be able to vote and comment on your selection.
 
 ## Customer Quote ##
-  > "I would cry if it wasn't for JetGrizzly" 
+  > "I would cry if it wasn't for JetGrizzly" - Britney Spears
   
-  > "Ever since I started using JetGrizzly, I never had to worry about grizzlies sitting next to me. Now I can watch movies with my boyfriend without having to suffer his faulty hygiene" -Anonymous happy user
-  
+  > "Ever since I started using JetGrizzly, I never had to worry about grizzlies sitting next to me. Now I can watch movies with my boyfriend without having to suffer his faulty hygiene" -Anonymous
 
 ## Closing and Call to Action ##
   > Go to the website!
