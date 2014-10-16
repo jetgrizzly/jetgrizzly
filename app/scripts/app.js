@@ -8,19 +8,18 @@
  *
  * Main module of the application.
  */
-<<<<<<< HEAD
-angular.module('jetgrizzlyApp', []);
-=======
 angular.module('jetgrizzlyApp', [])
 
-.controller('PlayerController', function($scope, playerFactory) {
+.controller('PlayerController', function($scope, $window, playerFactory) {
 
-  //Load the player on initial entering of room
+  //Initial settings
   $scope.yt = {
     width: 640,
     height: 390,
-    videoid: "M7lc1UVf-VE"
+    videoid: undefined
   };
+  //test: "EJs8UWLBVVI"
+  
 
   //Link up with songqueue, insert new property of videoID
   // i.e. videoID: song.split('=')[1]
@@ -47,53 +46,58 @@ angular.module('jetgrizzlyApp', [])
 .directive('youtube', function($window) {
 
   return {
+    //elements attribute settings i.e. id, height attrs
     restrict: "E",
 
     scope: {
-      height:  "@",
-      width:   "@",
-      videoID: "@"
+      //bind attrs to our directive scope
+      //one way binding - data changed in the view is updated in javascript
+      height: "@",
+      width: "@",
+      videoid: "@"
     },
-  
-  template: '<div></div>',
 
-  link: function(scope, element) {
-    //Load the player API code asynchrounously (can move this to controller after we set up queue)
-    var tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/player_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    //template to put inside of directive
+    template: '<div></div>',
 
-     // Make new YouTube player after the API code downloads
-    var player;
-    $window.onYouTubePlayerAPIReady = function() {
-      player = new YT.Player(element.children()[0], {
-        playerVars:{
-          html5: 1,
-          autoplay: 0
-        },
-        height: scope.height,
-        width: scope.width,
-        videoID: scope.videoid
-      });
-    };
+    link: function(scope, element) {
+      //Load the iFrame player API code asynchronously
+      var tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-    //Check if the API is ready at run-time
-    if ($window.YT) {
-      onYouTubePlayerAPIReady();
-    }
+      var player;
 
-    //Watch for change in video, maybe not needed in a queue later
-    scope.$watch('videoid', function(newValue, oldValue) {
-      if (newValue == oldValue) {
-        return;
+      $window.onYouTubeIframeAPIReady = function() {
+        player = new YT.Player(element.children()[0], {
+          playerVars: {
+            autoplay: 1,
+            html5: 1,
+          },
+          //This will allow the view to change in real time
+          height: scope.height,
+          width: scope.width,
+          videoId: scope.videoid, 
+        });
       }
-      player.cueVideoById(scope.videoid);
-    })
-  },
 
-}
+      //If a change is made to videoid via input box in view, this will see the change and runs callback
+      scope.$watch('videoid', function(newValue, oldValue) {
+        if (newValue == oldValue) {
+          return;
+        }
+        //YouTube will instantly change the currently playing video
+        player.cueVideoById(scope.videoid);
 
+      }); 
+    }  
+  };
 });
 
+<<<<<<< HEAD
 >>>>>>> (feat) Made directive for adding youtube link and embedding into index.html
+=======
+
+
+>>>>>>> (feat) Can update YouTube Player on index.html with iFrame
