@@ -17,13 +17,13 @@ Once the project moves into development, the press release can be used as a touc
  -->
 
 ## Summary ##
-  > Jetgrizzly provides a virtual space for you to exchange and watch videos with anyone from around the world. We feature a democratic voting system that allows the best and most popular content to rise to the top. We aim to provide an open, accessible space for people around the world to meet and exchange meaningful content and cat videos.
+  > jetgrizzly provides a virtual space for you to exchange and watch videos with anyone from around the world. We feature a democratic voting system that allows the best and most popular content to rise to the top. We aim to provide an open, accessible space for people around the world to meet and exchange meaningful content and cat videos.
 
 ## Problem ##
   > The options that currently exist for exchanging and watching videos online require invitations and prior relationship with your intended viewers.
   
 ## Solution ##
-  > Jetgrizzly provides you a way to meet and exchange videos with strangers while ensuring that quality content rises to the top. User reputation is taken in to account to organize the priority of the video queue. We provide the layer to ensure you have a great viewing experience! 
+  > jetgrizzly provides you a way to meet and exchange videos with strangers while ensuring that quality content rises to the top. User reputation is taken in to account to organize the priority of the video queue. We provide the layer to ensure you have a great viewing experience! 
 
 ## Quote from You ##
   > "Now we can watch movies together without even dressing." -Jose
@@ -36,9 +36,9 @@ Once the project moves into development, the press release can be used as a touc
   > Visit our site and get to viewing! If you want to contribute videos, simply add a youtube URL to the queue and your fellow audience members will be able to vote and comment on your selection.
 
 ## Customer Quote ##
-  > "I would cry if it wasn't for JetGrizzly" - Britney Spears
+  > "I would cry if it wasn't for jetgrizzly" - Britney Spears
   
-  > "Ever since I started using JetGrizzly, I never had to worry about grizzlies sitting next to me. Now I can watch movies with my boyfriend without having to suffer his faulty hygiene" -Anonymous
+  > "Ever since I started using jetgrizzly, I never had to worry about grizzlies sitting next to me. Now I can watch movies with my boyfriend without having to suffer his faulty hygiene" -Anonymous
 
 ## Closing and Call to Action ##
   > Go to the website!
