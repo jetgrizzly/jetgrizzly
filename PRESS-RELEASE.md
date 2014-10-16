@@ -27,23 +27,20 @@ Once the project moves into development, the press release can be used as a touc
   
 
 ## Summary ##
-  >Our application allows people to exchange and watch videos together, no matter where they are. If users wanted to do what our application does, users would have to manually load each video and press play at the same time. 
+  > Our application allows people to exchange and watch videos together, no matter where they are. If users wanted to do what our application does, users would have to manually load each video and press play at the same time. 
 
 ## Problem ##
   > Currently there is no application which allows users to watch the same video at the same time unless each person does it manually. 
   
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
-  By providing a space for our users to do all of the previously mentioned problems. 
+  > By providing a space for our users to do all of the previously mentioned problems. 
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
-  "Now we can watch movies together without even dressing" -Jose
+  > "Now we can watch movies together without even dressing" -Jose
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
-  After registering for a free account, create a room, invite your friends, and watch videos together!
+  > After registering for a free account, create a room, invite your friends, and watch videos together!
 
 ## Customer Quote ##
   > "I would cry if it wasn't for JetGrizzly" 
