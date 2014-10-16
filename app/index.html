@@ -16,16 +16,13 @@
     <!-- endbuild -->
   </head>
   <body ng-app="jetgrizzlyApp">
-<<<<<<< HEAD
-    <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-
->>>>>>> (feat) Made directive for adding youtube link and embedding into index.html
     <!-- Add your site or application content here -->
     <div class="container">
       <div class="header">
 
+<!-- <iframe id="yttplayer" type="text/html" width="640" height="390"
+  src="http://www.youtube.com/embed/EJs8UWLBVVI?autoplay=1&origin=http://example.com"
+  frameborder="0"/> -->
         <ul class="nav nav-pills pull-right">
           <li><a ng-href="#">Log In</a></li>
           <li><a ng-href="#">Log Out</a></li>
@@ -33,16 +30,14 @@
         <h3 class="text-muted">jetgrizzly</h3>
       </div>
 
-<<<<<<< HEAD
       <div ng-include="'views/main.html'" ng-controller="VideoQueueController"></div>
       <div ng-controller="PlayerController">
-        <div id="player"></div>
-        <youtube videoid="{{yt.videoid}}"></youtube>
+        <youtube width="{{yt.width}}" height="{{yt.height}}" videoid="{{yt.videoid}}"></youtube>
         <br/>
-        Link to video:<input type="text" ng-model="yt.videoid">
+        Videoid:<input type="text" ng-model="yt.videoid"></input>
       </div>
+
       <div ng-include="'views/main.html'" ng-controller="MainCtrl"></div>
->>>>>>> (feat) Made directive for adding youtube link and embedding into index.html
 
       <div class="footer">
         <p><span class="glyphicon glyphicon-heart"></span> created by team jetgrizzly: Alex Jeng, Jose Merino, Moxi Zhou, Jeff Gladchun</p>
