@@ -1,8 +1,8 @@
 [![Stories in Ready](https://badge.waffle.io/jetgrizzly/jetgrizzly.png?label=ready&title=Ready)](https://waffle.io/jetgrizzly/jetgrizzly)
 
-# Project Name
+# jetgrizzly
 
-> Pithy project description
+> Providing an open, accessible forum for exchanging videos and interacting online.
 
 ## Team
 
