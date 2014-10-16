@@ -17,12 +17,10 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
-  A website where you and your friends can get together online and watch YouTube videos simultaneously as if you were in the same room. 
+  > A website where you and your friends can get together online and watch YouTube videos simultaneously as if you were in the same room. 
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
-  For a group of people who want to get together to watch videos online. 
+  > For a group of people who want to get together to watch videos online. 
   
   
 
