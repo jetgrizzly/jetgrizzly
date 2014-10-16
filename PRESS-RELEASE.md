@@ -27,7 +27,9 @@ Once the project moves into development, the press release can be used as a touc
 
 ## Quote from You ##
   > "Now we can watch movies together without even dressing." -Jose
+  
   > "This is better than the Facebook." - Mark Zuckerberg
+  
   > "This is the future of technology." - Elon Musk
 
 ## How to Get Started ##
