@@ -18,11 +18,12 @@ angular.module('jetgrizzlyApp')
 
 angular.module('jetgrizzlyApp')
   .controller('VideoQueueController', ['$scope', 'UserPresenceFactory', function ($scope, UserPresenceFactory) {
-    //Listen for new users to lobby
+    //Declare variables
     $scope.totalUsers = 0;
     $scope.userQueue = [];
     $scope.myQueue = [];
 
+    //Listen for new users to lobby (emitted from UserPresenceFactory)
     $scope.$on('onOnlineUser', function() {
       $scope.$apply(function() {
         $scope.totalUsers = UserPresenceFactory.getOnlineUserCount();
@@ -46,15 +47,17 @@ angular.module('jetgrizzlyApp')
     //Add ourselves to the presence list when online
     presenceRef.on('value', function(snapshot) {
       if (snapshot.val()) {
-        userRef.set(true);
+        userRef.set({
+          online: true,
+          queue: [1,2,3]
+        });
         // Remove ourselves when we disconnect.
         userRef.onDisconnect().remove();
-      }
+      } 
     });
 
     // Get the user count and notify the application
     listRef.on('value', function(snapshot) {
-      console.log(snapshot.val());
       onlineUsers = snapshot.numChildren();
       userQueue = snapshot.val();
       $rootScope.$broadcast('onOnlineUser');
