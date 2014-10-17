@@ -5,7 +5,6 @@
     <title>jetgrizzly</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
@@ -19,10 +18,6 @@
     <!-- Add your site or application content here -->
     <div class="container">
       <div class="header">
-
-<!-- <iframe id="yttplayer" type="text/html" width="640" height="390"
-  src="http://www.youtube.com/embed/EJs8UWLBVVI?autoplay=1&origin=http://example.com"
-  frameborder="0"/> -->
         <ul class="nav nav-pills pull-right">
           <li><a ng-href="#">Log In</a></li>
           <li><a ng-href="#">Log Out</a></li>
@@ -31,13 +26,6 @@
       </div>
 
       <div ng-include="'views/main.html'" ng-controller="VideoQueueController"></div>
-      <div ng-controller="PlayerController">
-        <youtube width="{{yt.width}}" height="{{yt.height}}" videoid="{{yt.videoid}}"></youtube>
-        <br/>
-        Videoid:<input type="text" ng-model="yt.videoid"></input>
-      </div>
-
-      <div ng-include="'views/main.html'" ng-controller="MainCtrl"></div>
 
       <div class="footer">
         <p><span class="glyphicon glyphicon-heart"></span> created by team jetgrizzly: Alex Jeng, Jose Merino, Moxi Zhou, Jeff Gladchun</p>
@@ -46,6 +34,15 @@
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+     <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script>
 
     <!-- build:js(.) scripts/oldieshim.js -->
     <!--[if lt IE 9]>
@@ -73,11 +70,10 @@
     <script src="bower_components/firebase/firebase.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-    <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/main.js"></script>
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
-
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/main.js"></script>
         <!-- endbuild -->
 </body>
 </html>
