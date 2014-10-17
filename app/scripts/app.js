@@ -9,7 +9,6 @@
  * Main module of the application.
  */
 angular.module('jetgrizzlyApp', [])
-
   .controller('PlayerController', function($scope, $window, playerFactory) {
     //Initial settings
     $scope.yt = {
@@ -23,11 +22,9 @@ angular.module('jetgrizzlyApp', [])
       playerFactory.playSong($scope.songUrl);
     };
   })
-
   .factory('playerFactory', function() {
   //queueSong function from controller calls this 
   })
-
   .directive('youtube', function($window) {
     return {
       //elements attribute settings i.e. id, height attrs
