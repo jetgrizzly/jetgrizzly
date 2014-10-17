@@ -7,14 +7,14 @@
  * # MainCtrl
  * Controller of the jetgrizzlyApp
  */
-angular.module('jetgrizzlyApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+// angular.module('jetgrizzlyApp')
+//   .controller('MainCtrl', function ($scope) {
+//     $scope.awesomeThings = [
+//       'HTML5 Boilerplate',
+//       'AngularJS',
+//       'Karma'
+//     ];
+//   });
 
 angular.module('jetgrizzlyApp')
   .controller('VideoQueueController', ['$scope', 'UserPresenceFactory', function ($scope, UserPresenceFactory) {
