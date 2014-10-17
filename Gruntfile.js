@@ -410,6 +410,22 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+
+    //Using shell to run `bower install` and `npm install` to add new deps
+    shell: {
+      options: {
+        stdout: true,
+        stderr: true,
+        async: true,
+        failOnError: true
+      },
+      npm: {
+        command: 'npm install'
+      },
+      bower: {
+        command: 'bower install'
+      }
     }
   });
 
@@ -420,6 +436,8 @@ module.exports = function (grunt) {
     }
 
     grunt.task.run([
+      'shell:npm',
+      'shell:bower',
       'clean:server',
       'wiredep',
       'concurrent:server',
@@ -435,6 +453,8 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('test', [
+    'shell:npm',
+    'shell:bower',
     'clean:server',
     'concurrent:test',
     'autoprefixer',
@@ -443,6 +463,8 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('build', [
+    'shell:npm',
+    'shell:bower',
     'clean:dist',
     'wiredep',
     'useminPrepare',
