@@ -31,20 +31,20 @@ angular.module('jetgrizzlyApp', [])
   .directive('youtube', function($window) {
     return {
       //elements attribute settings i.e. id, height attrs
-      restrict: "E",
+      restrict: 'E',
       scope: {
         //bind attrs to our directive scope
         //one way binding - data changed in the view is updated in javascript
-        height: "@",
-        width: "@",
-        videoid: "@"
+        height: '@',
+        width: '@',
+        videoid: '@'
       },
       //template to put inside of directive
       template: '<div></div>',
       link: function(scope, element) {
         //Load the iFrame player API code asynchronously
         var tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
+        tag.src = 'https://www.youtube.com/iframe_api';
         var firstScriptTag = document.getElementsByTagName('script')[0];
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
         var player;
