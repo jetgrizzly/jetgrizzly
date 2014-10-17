@@ -31,13 +31,6 @@
       </div>
 
       <div ng-include="'views/main.html'" ng-controller="VideoQueueController"></div>
-      <div ng-controller="PlayerController">
-        <youtube width="{{yt.width}}" height="{{yt.height}}" videoid="{{yt.videoid}}"></youtube>
-        <br/>
-        Videoid:<input type="text" ng-model="yt.videoid"></input>
-      </div>
-
-      <div ng-include="'views/main.html'" ng-controller="MainCtrl"></div>
 
       <div class="footer">
         <p><span class="glyphicon glyphicon-heart"></span> created by team jetgrizzly: Alex Jeng, Jose Merino, Moxi Zhou, Jeff Gladchun</p>
