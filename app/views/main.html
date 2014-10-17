@@ -6,6 +6,12 @@
   <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
 </div>
 <div class="row">
+  <div ng-controller="PlayerController">
+    <youtube width="{{yt.width}}" height="{{yt.height}}" videoid="{{yt.videoid}}"></youtube>
+    <input type="text" ng-model="yt.videoid">Input video id here</input>
+  </div>
+</div>
+<div class="row">
   <div class="input">
     <input type="text" ng-model="item">
     <button class="submit" ng-click="addToQueue(item)">Add</button>
