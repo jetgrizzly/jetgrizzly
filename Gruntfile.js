@@ -417,7 +417,6 @@ module.exports = function (grunt) {
       options: {
         stdout: true,
         stderr: true,
-        async: true,
         failOnError: true
       },
       npm: {
