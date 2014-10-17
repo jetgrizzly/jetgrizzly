@@ -19,22 +19,24 @@ angular.module('jetgrizzlyApp')
 angular.module('jetgrizzlyApp')
   .controller('VideoQueueController', ['$scope', 'UserPresenceFactory', function ($scope, UserPresenceFactory) {
     //Listen for new users to lobby
-    $scope.totalViewers = 0;
+    $scope.totalUsers = 0;
+    $scope.userQueue = [];
+    $scope.myQueue = [];
 
     $scope.$on('onOnlineUser', function() {
       $scope.$apply(function() {
-        $scope.totalViewers =   
-          UserPresenceFactory.getOnlineUserCount();
+        $scope.totalUsers = UserPresenceFactory.getOnlineUserCount();
+        $scope.userQueue = UserPresenceFactory.getUserQueue();
       });
     });
 
-    $scope.userQueue = [];
     $scope.addToQueue = function(item) {
-      $scope.userQueue.push(item);
+      $scope.myQueue.push(item);
     };
   }])
   .factory('UserPresenceFactory', ['$rootScope', function($rootScope) {
     var onlineUsers = 0;
+    var userQueue = {};
 
     //Create firebase references
     var listRef = new window.Firebase('https://blistering-heat-6745.firebaseio.com/presence/');
@@ -52,7 +54,9 @@ angular.module('jetgrizzlyApp')
 
     // Get the user count and notify the application
     listRef.on('value', function(snapshot) {
+      console.log(snapshot.val());
       onlineUsers = snapshot.numChildren();
+      userQueue = snapshot.val();
       $rootScope.$broadcast('onOnlineUser');
     });
 
@@ -60,7 +64,16 @@ angular.module('jetgrizzlyApp')
       return onlineUsers;
     };
 
+    var getUserQueue = function() {
+      var result = [];
+      for (var user in userQueue) {
+        result.push([user, userQueue[user]]);
+      }
+      return result;
+    };
+
     return {
-      getOnlineUserCount: getOnlineUserCount
+      getOnlineUserCount: getOnlineUserCount,
+      getUserQueue: getUserQueue
     };
   }]);
