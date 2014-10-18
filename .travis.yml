@@ -9,6 +9,7 @@ before_script:
   - bower install
 before_deploy:
   - grunt build
+  - yes | cp .travis.gitignore .gitignore
 
 deploy:
   provider: heroku
