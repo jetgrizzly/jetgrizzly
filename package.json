@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "dependencies": {
     "express": "^4.9.7",
-    "http": "0.0.0"
+    "http": "0.0.0",
+    "sinon": "^1.10.3"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
