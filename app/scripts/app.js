@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-angular.module('jetgrizzlyApp', [])
+angular.module('jetgrizzlyApp', ['jetgrizzlyApp.chat'])
   .controller('PlayerController', function($scope, $window, playerFactory) {
     //Initial settings
     $scope.yt = {

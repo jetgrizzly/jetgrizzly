@@ -28,8 +28,19 @@
 
       <div ng-include="'views/main.html'" ng-controller="VideoQueueController"></div>
 
-      <div class="jumbotron">
-        Future Chatbox
+      <div ng-controller="chatController">
+        <div class="jumbotron">
+          <ul style="list-style: none;">
+            <li ng-model="messages" ng-repeat="message in messages">
+              {{message.user}}: {{message.text}}
+            </li>
+          </ul>
+        </div>
+        <form novalidate name="submitForm" ng-submit="addMessage(newUser, newMessageText)">
+          <input ng-model="newUser" placeholder="name" required></input>
+          <input name="text" ng-model="newMessageText" placeholder="message" required></input>
+          <button type="submit" ng-disabled="submitForm.$invalid">add message</button>
+        </form>
       </div>
 
       <div class="footer">
@@ -73,10 +84,15 @@
     <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/tooltip.js"></script>
     <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/popover.js"></script>
     <script src="bower_components/firebase/firebase.js"></script>
+    <script src="bower_components/firebase-simple-login/firebase-simple-login.js"></script>
+    <script src="bower_components/mockfirebase/dist/mockfirebase.js"></script>
+    <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/chat.js"></script>
+
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
 
