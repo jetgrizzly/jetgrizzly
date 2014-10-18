@@ -7,3 +7,16 @@ before_install:
 before_script:
   - npm install -g bower grunt-cli
   - bower install
+before_deploy:
+  - grunt build
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: Wvfd5uli1OrtJB2mM0vlqYCvTXemQtAPwiub6MTPmndWD23qbJqYZKie19u5b9E1PtKZKPXJepFUiA9qCKuZBPFlWIBHdFPGQ/LCnIsP6O5IqcBsaXo+1uaN3067ZKjp/5RU8yhuQoDEPJIV2Y/c/0mWzzjYxbU5Jkr4vVgynbY=
+  skip_cleanup: true
+  app:
+    master: jetgrizzly
+    develop: jetgrizzlydev
+  on:
+    repo: jetgrizzly/jetgrizzly
