@@ -8,10 +8,12 @@ before_script:
   - npm install -g bower grunt-cli
   - bower install
 after_success:
-  - grunt build
+  - gem install heroku
   - heroku keys:clear
   - yes | heroku keys:add
-  - grunt buildcontrol
+  - grunt build
+  - yes | grunt buildcontrol
+  - heroku keys:clear
 env:
   global:
     secure: "EV83RaeBdbR9w6CIe5uUM1X0Qs36Ty+5hiXRZbJK075Sf3qiHcuqaHbILmcS8QIup9zWoY/580tAH8Ls8c8cAvYYhfZPoqulbf6VFmNFfz7su3fZs/r4nAJ+dVIK6Gzwm9wYBm9+eiJVOYrU+CTT5+JxyqNIBwfH8C34Gnk5hiI="
