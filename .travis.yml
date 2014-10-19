@@ -8,11 +8,15 @@ before_script:
   - npm install -g bower grunt-cli
   - bower install
 after_success:
+  - echo "Host heroku.com" >> ~/.ssh/config
+  - echo "   StrictHostKeyChecking no" >> ~/.ssh/config
+  - echo "   CheckHostIP no" >> ~/.ssh/config;
+  - echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config;
   - gem install heroku
   - heroku keys:clear
-  - echo yes | heroku keys:add
+  - yes | heroku keys:add
   - grunt build
-  - echo yes | grunt buildcontrol
+  - yes | grunt buildcontrol
   - heroku keys:clear
 env:
   global:
