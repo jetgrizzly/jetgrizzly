@@ -10,7 +10,7 @@ before_script:
 after_success:
   - grunt build
   - heroku keys:clear
-  - heroku keys:add
+  - yes | heroku keys:add
   - grunt buildcontrol
 env:
   global:
