@@ -10,9 +10,9 @@ before_script:
 after_success:
   - gem install heroku
   - heroku keys:clear
-  - yes | heroku keys:add
+  - echo yes | heroku keys:add
   - grunt build
-  - yes | grunt buildcontrol
+  - echo yes | grunt buildcontrol
   - heroku keys:clear
 env:
   global:
