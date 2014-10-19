@@ -9,7 +9,6 @@ app.use(express.static(__dirname + '/client'));
 var server = require('http').createServer(app);
 // Start server
 server.listen(port, ip, function () {
-  console.log('Asset dir is: '+ config.assetsDir);
   console.log('Express server listening on %d!', port);
 });
 
