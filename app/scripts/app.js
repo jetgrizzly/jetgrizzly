@@ -33,18 +33,8 @@ module.config(function($stateProvider,$urlRouterProvider){
     }
   })
 })
-.run(function ($rootScope, $location, Auth) {
-  // Redirect to login if route requires auth and you're not logged in
-  $rootScope.$on('$stateChangeStart', function (event, next) {
-//    Auth.isAuthenticated().then(function(user) {
-//      if (next.authenticate && !user) {
-//        $location.path('/login');
-//      }
-//    });
-  });
-})
-  .factory('config',function(){
-    return {
-      firebase:{url:'https://blistering-heat-6745.firebaseio.com'}
-    };
-  });
+.factory('config',function(){
+  return {
+    firebase:{url:'https://blistering-heat-6745.firebaseio.com'}
+  };
+});

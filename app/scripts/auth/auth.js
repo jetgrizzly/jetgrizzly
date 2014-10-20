@@ -7,11 +7,11 @@ module.config(function ($stateProvider) {
     url: '/login',
     parent: 'app',
     templateUrl: 'views/auth/login.html',
-    controller: function ($scope, currentUser, Auth,$location) {
+    controller: function ($scope, currentUser, Auth,$location,$state) {
       $scope.user = {};
       $scope.Auth = Auth;
       if(currentUser){
-        $location.path('/');
+        $state.go('lobby');
       }
     }
   });
@@ -19,20 +19,20 @@ module.config(function ($stateProvider) {
     url: '/register',
     parent: 'app',
     templateUrl: 'views/auth/register.html',
-    controller: function ($scope, Auth, $location, currentUser) {
+    controller: function ($scope, Auth, $state, currentUser) {
       $scope.user = {};
       $scope.Auth = Auth;
       if(currentUser){
-        $location.path('/');
+        $state.go('lobby');
       }
     }
   });
   $stateProvider.state('logout', {
     url: '/logout',
     parent: 'app',
-    controller: function ($scope, Auth,$location) {
+    controller: function ($scope, Auth,$location,$state) {
       Auth.$logout();
-      $location.path('/')
+      $state.go('lobby');
     }
   });
 });
