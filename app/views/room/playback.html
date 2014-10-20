@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" ng-show="currentUser">
   <div ng-controller="PlayerController">
     <youtube width="{{yt.width}}" height="{{yt.height}}" videoid="{{yt.videoid}}"></youtube>
     <input type="text" ng-model="yt.videoid">Input video id here</input>
