@@ -4,6 +4,13 @@ $icon-font-path: "../../bower_components/bootstrap-sass-official/assets/fonts/bo
 
 @import "../../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 
+#maincontainer {
+  position:relative;
+  top: $navbar-height;
+  height: auto;
+  bottom: $navbar-height;
+}
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;

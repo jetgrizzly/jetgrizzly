@@ -4,6 +4,12 @@
 // Variables
 // --------------------------------------------------
 
+// Adobe color CC variables
+$kuler-first: #14212B;
+$kuler-second: #293845;
+$kuler-third: #4F6373;
+$kuler-fourth: #8F8164;
+$kuler-fifth: #D9D7AC;
 
 //== Colors
 //
@@ -15,7 +21,7 @@ $gray:                   lighten(#000, 33.5%) !default; // #555
 $gray-light:             lighten(#000, 46.7%) !default; // #777
 $gray-lighter:           lighten(#000, 93.5%) !default; // #eee
 
-$brand-primary:         red;
+$brand-primary:         $kuler-third;
 $brand-success:         #5cb85c !default;
 $brand-info:            #5bc0de !default;
 $brand-warning:         #f0ad4e !default;
@@ -27,14 +33,14 @@ $brand-danger:          #d9534f !default;
 //## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-$body-bg:               #fff !default;
+$body-bg:               $kuler-first;
 //** Global text color on `<body>`.
-$text-color:            $gray-dark !default;
+$text-color:            $kuler-fifth;
 
 //** Global textual link color.
-$link-color:            $brand-primary !default;
+$link-color:            $brand-primary;
 //** Link hover color set via `darken()` function.
-$link-hover-color:      darken($link-color, 15%) !default;
+$link-hover-color:      lighten($link-color, 15%) !default;
 
 
 //== Typography
@@ -147,7 +153,7 @@ $table-border-color:            #ddd !default;
 $btn-font-weight:                normal !default;
 
 $btn-default-color:              #333 !default;
-$btn-default-bg:                 #fff !default;
+$btn-default-bg:                 $kuler-third;
 $btn-default-border:             #ccc !default;
 
 $btn-primary-color:              #fff !default;
@@ -178,7 +184,7 @@ $btn-link-disabled-color:        $gray-light !default;
 //##
 
 //** `<input>` background color
-$input-bg:                       #fff !default;
+$input-bg:                       $kuler-second !default;
 //** `<input disabled>` background color
 $input-bg-disabled:              $gray-lighter !default;
 
