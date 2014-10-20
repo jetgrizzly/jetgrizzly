@@ -6,7 +6,7 @@
       <li><a ui-sref="login" ng-show="!currentUser">Log In</a></li>
       <li><a ui-sref="logout" ng-show="currentUser">Log Out</a></li>
     </ul>
-    <h3 class="text-muted"><a ui-sref="lobby">jetgrizzly</a></h3>
+    <h3 class="text-muted"><a ui-sref="lobby" ui-sref-opts="{reload:true}">jetgrizzly</a></h3>
   </div>
   <ui-view></ui-view>
   <div class="footer">
