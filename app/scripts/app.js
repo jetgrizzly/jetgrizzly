@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-angular.module('jetgrizzlyApp', ['jetgrizzlyApp.chat'])
+angular.module('jetgrizzlyApp', ['jetgrizzlyApp.chat', 'jetgrizzlyApp.login'])
   .controller('PlayerController', function($scope, $window, playerFactory) {
     //Initial settings
     $scope.yt = {
@@ -21,6 +21,7 @@ angular.module('jetgrizzlyApp', ['jetgrizzlyApp.chat'])
     $scope.queueSong = function(){
       playerFactory.playSong($scope.songUrl);
     };
+
   })
   .factory('playerFactory', function() {
   //queueSong function from controller calls this 
