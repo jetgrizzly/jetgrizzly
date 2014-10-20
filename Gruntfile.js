@@ -435,7 +435,7 @@ module.exports = function (grunt) {
     }
 
     grunt.task.run([
-      'shell:npm',
+      // 'shell:npm',
       'shell:bower',
       'clean:server',
       'wiredep',
@@ -462,7 +462,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('build', [
-    'shell:npm',
+    // 'shell:npm',
     'shell:bower',
     'clean:dist',
     'wiredep',

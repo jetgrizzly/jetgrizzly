@@ -1,15 +1,15 @@
 'use strict';
-module = angular.module('jetgrizzlyApp.Room',['ui.router']).config(function($stateProvider){
-  $stateProvider.state('lobby',{
-    url:'/',
-    parent:'app',
-    templateUrl:'views/room/room.html',
-    controller:function($scope,currentUser){
+module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function ($stateProvider) {
+  $stateProvider.state('lobby', {
+    url: '/',
+    parent: 'app',
+    templateUrl: 'views/room/room.html',
+    controller: function ($scope, currentUser) {
       $scope.user = currentUser;
     }
   });
 })
-  .controller('PlayerController', function($scope, $window, playerFactory) {
+  .controller('PlayerController',function ($scope, $window, playerFactory) {
   //Initial settings
   $scope.yt = {
     width: 640,
@@ -18,14 +18,14 @@ module = angular.module('jetgrizzlyApp.Room',['ui.router']).config(function($sta
   };
   //Link up with songqueue, insert new property of videoID
   // i.e. videoID: song.split('=')[1]
-  $scope.queueSong = function(){
+  $scope.queueSong = function () {
     playerFactory.playSong($scope.songUrl);
   };
+
+}).factory('playerFactory', function () {
+  //queueSong function from controller calls this
 })
-  .factory('playerFactory', function() {
-    //queueSong function from controller calls this
-  })
-  .directive('youtube', function($window) {
+  .directive('youtube', function ($window) {
     return {
       //elements attribute settings i.e. id, height attrs
       restrict: 'E',
@@ -38,7 +38,7 @@ module = angular.module('jetgrizzlyApp.Room',['ui.router']).config(function($sta
       },
       //template to put inside of directive
       template: '<div></div>',
-      link: function(scope, element) {
+      link: function (scope, element) {
         //Load the iFrame player API code asynchronously
         var tag = document.createElement('script');
         tag.src = 'https://www.youtube.com/iframe_api';
@@ -46,7 +46,8 @@ module = angular.module('jetgrizzlyApp.Room',['ui.router']).config(function($sta
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
         var player;
 
-        $window.onYouTubeIframeAPIReady = function() {
+
+        $window.onYouTubeIframeAPIReady = function () {
           player = new window.YT.Player(element.children()[0], {
             playerVars: {
               autoplay: 1,
@@ -59,7 +60,7 @@ module = angular.module('jetgrizzlyApp.Room',['ui.router']).config(function($sta
           });
         };
         //If a change is made to videoid via input box in view, this will see the change and runs callback
-        scope.$watch('videoid', function(newValue, oldValue) {
+        scope.$watch('videoid', function (newValue, oldValue) {
           if (newValue === oldValue) {
             return;
           }
@@ -68,4 +69,5 @@ module = angular.module('jetgrizzlyApp.Room',['ui.router']).config(function($sta
         });
       }
     };
-  });
+});
+

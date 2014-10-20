@@ -49,7 +49,6 @@ angular.module('jetgrizzlyApp')
 
     // Get the user count and notify the application
     listRef.on('value', function(snapshot) {
-      console.log(snapshot.val());
       onlineUsers = snapshot.numChildren();
       userQueue = snapshot.val();
       $rootScope.$broadcast('onOnlineUser');

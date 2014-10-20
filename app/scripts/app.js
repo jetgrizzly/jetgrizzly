@@ -16,7 +16,6 @@ var module = angular.module('jetgrizzlyApp', [
   'ui.router',
   'ui.bootstrap'
 ]);
-
 module.config(function($stateProvider,$urlRouterProvider){
   $urlRouterProvider.otherwise("/");
   $stateProvider.state('app',{
