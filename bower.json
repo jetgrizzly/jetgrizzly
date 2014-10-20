@@ -6,7 +6,9 @@
     "json3": "~3.3.1",
     "es5-shim": "~3.1.0",
     "bootstrap-sass-official": "~3.2.0",
-    "angularfire": "~0.8.2"
+    "angularfire": "~0.8.2",
+    "ui-router": "~0.2.11",
+    "angular-bootstrap": "~0.11.2"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.0",
