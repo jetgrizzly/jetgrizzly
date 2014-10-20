@@ -16,22 +16,7 @@
     <!-- endbuild -->
   </head>
   <body ng-app="jetgrizzlyApp">
-    <!-- Add your site or application content here -->
-    <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li><a ng-href="#">Log In</a></li>
-          <li><a ng-href="#">Log Out</a></li>
-        </ul>
-        <h3 class="text-muted">jetgrizzly</h3>
-      </div>
-      <div ng-include="'views/main.html'" ng-controller="VideoQueueController"></div>
-      <div ng-include="'views/chat.html'" ng-controller="chatController"></div>
-
-      <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> created by team jetgrizzly: Alex Jeng, Jose Merino, Moxi Zhou, Jeff Gladchun</p>
-      </div>
-    </div>
+    <ui-view></ui-view>
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -72,10 +57,15 @@
     <script src="bower_components/firebase-simple-login/firebase-simple-login.js"></script>
     <script src="bower_components/mockfirebase/dist/mockfirebase.js"></script>
     <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
+    <script src="bower_components/ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
+    <script src="scripts/auth/auth.js"></script>
+    <script src="scripts/account/account.js"></script>
+    <script src="scripts/room/room.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/chat.js"></script>
 

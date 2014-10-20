@@ -1,17 +1,15 @@
-<div class="row">
-  <div ng-controller="PlayerController">
-    <youtube width="{{yt.width}}" height="{{yt.height}}" videoid="{{yt.videoid}}"></youtube>
-    <input type="text" ng-model="yt.videoid">Input video id here</input>
+<div class="container">
+  <div class="header">
+    <ul class="nav nav-pills pull-right">
+      <li><a ui-sref="account" ng-show="currentUser">MyAccount</a></li>
+      <li><a ui-sref="register" ng-show="!currentUser">Register</a></li>
+      <li><a ui-sref="login" ng-show="!currentUser">Log In</a></li>
+      <li><a ui-sref="logout" ng-show="currentUser">Log Out</a></li>
+    </ul>
+    <h3 class="text-muted"><a ui-sref="lobby">jetgrizzly</a></h3>
   </div>
-</div>
-<div class="row">
-  <div class="input">
-    <input type="text" ng-model="item">
-    <button class="submit" ng-click="addToQueue(item)">Add</button>
-    <div class="userQueue">
-      {{ myQueue }}
-      {{ userQueue }}
-      {{ totalUsers }}
-    </div>
+  <ui-view></ui-view>
+  <div class="footer">
+    <p><span class="glyphicon glyphicon-heart"></span> created by team jetgrizzly: Alex Jeng, Jose Merino, Moxi Zhou, Jeff Gladchun</p>
   </div>
 </div>
