@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('jetgrizzlyApp.chat', ["firebase"])
-	.controller('chatController', function($scope, $firebase, $location, $anchorScroll) {
-    var myChat = new Firebase('https://blistering-heat-6745.firebaseio.com/messages');
+	.controller('chatController', function($scope, $firebase, $location, $anchorScroll,config) {
+    var myChat = new Firebase(config.firebase.url+'/messages');
     var limit = myChat.limit(30);
     //create an AngularFire reference to the data and download the data into a local object
     var sync = $firebase(limit);
@@ -19,5 +19,3 @@ angular.module('jetgrizzlyApp.chat', ["firebase"])
       $anchorScroll();
     };
   });
-  // .factory('chatFactory', function() {
-  // })

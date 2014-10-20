@@ -26,14 +26,14 @@ angular.module('jetgrizzlyApp')
       $scope.myQueue.push(item);
     };
   }])
-  .factory('UserPresenceFactory', ['$rootScope', function($rootScope) {
+  .factory('UserPresenceFactory', ['$rootScope','config', function($rootScope,config) {
     var onlineUsers = 0;
     var userQueue = {};
 
     //Create firebase references
-    var listRef = new window.Firebase('https://blistering-heat-6745.firebaseio.com/presence/');
+    var listRef = new window.Firebase(config.firebase.url+'/presence/');
     var userRef = listRef.push(); 
-    var presenceRef = new window.Firebase('https://blistering-heat-6745.firebaseio.com/.info/connected');
+    var presenceRef = new window.Firebase(config.firebase.url+'/.info/connected');
 
     //Add ourselves to the presence list when online
     presenceRef.on('value', function(snapshot) {

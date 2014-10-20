@@ -16,22 +16,7 @@
     <!-- endbuild -->
   </head>
   <body ng-app="jetgrizzlyApp">
-    <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-
-          <li><a ui-sref="account">MyAccount</a></li>
-          <li><a ui-sref="register">Register</a></li>
-          <li><a ui-sref="lobby">Log In</a></li>
-          <li><a ui-sref="lobby">Log Out</a></li>
-        </ul>
-        <h3 class="text-muted">jetgrizzly</h3>
-      </div>
-      <ui-view></ui-view>
-      <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> created by team jetgrizzly: Alex Jeng, Jose Merino, Moxi Zhou, Jeff Gladchun</p>
-      </div>
-    </div>
+    <ui-view></ui-view>
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -83,7 +68,6 @@
     <script src="scripts/room/room.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/chat.js"></script>
-    <script src="scripts/controllers/login.js"></script>
 
     <!-- endbuild -->
 </body>
