@@ -18,12 +18,14 @@ angular.module('jetgrizzlyApp')
     $scope.$on('onOnlineUser', function() {
       $scope.$apply(function() {
         $scope.totalUsers = UserPresenceFactory.getOnlineUserCount();
-        $scope.userQueue = UserPresenceFactory.getUserQueue();
       });
     });
 
     $scope.addToQueue = function(item) {
       $scope.myQueue.push(item);
+      if ($scope.myQueue.length === 1) {
+        $scope.userQueue.push($scope.myQueue);
+      }
     };
   }])
   .factory('UserPresenceFactory', ['$rootScope','config', function($rootScope,config) {
@@ -38,10 +40,7 @@ angular.module('jetgrizzlyApp')
     //Add ourselves to the presence list when online
     presenceRef.on('value', function(snapshot) {
       if (snapshot.val()) {
-        userRef.set({
-          online: true,
-          queue: [1,2,3]
-        });
+        userRef.set({});
         // Remove ourselves when we disconnect.
         userRef.onDisconnect().remove();
       } 
@@ -58,16 +57,7 @@ angular.module('jetgrizzlyApp')
       return onlineUsers;
     };
 
-    var getUserQueue = function() {
-      var result = [];
-      for (var user in userQueue) {
-        result.push([user, userQueue[user]]);
-      }
-      return result;
-    };
-
     return {
-      getOnlineUserCount: getOnlineUserCount,
-      getUserQueue: getUserQueue
+      getOnlineUserCount: getOnlineUserCount
     };
   }]);
