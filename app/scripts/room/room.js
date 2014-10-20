@@ -68,7 +68,7 @@ module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function ($s
                 playerVars: {
                   autoplay: 1,
                   html5: 1,
-                  start:  Math.floor((Date.now() - youtubeInfo.startTime) / 1000)
+                  start: startTime
                },
                //This will allow the view to change in real time
                 height: scope.height,
