@@ -4,11 +4,65 @@ $icon-font-path: "../../bower_components/bootstrap-sass-official/assets/fonts/bo
 
 @import "../../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 
+#wrapper {
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+}
+
 #maincontainer {
+  position:absolute;
+  top:$navbar-height;
+  bottom:0;
+  overflow:hidden;
+  left:0;
+  right:0;
+}
+$chat-width: 400px;
+
+.fullsize {
+  position:absolute;
+  height:100%;
+  min-height:100%;
+  width:100%;
+}
+.playback {
+  margin: 0 auto;
+  width:650px;
+}
+.room-chat {
+  position:absolute;
+  top:0;
+  right:0;
+  width:$chat-width;
+  height:100%;
+  background:fade-out(black,0.5);
+}
+.chat-messages{
+  position:absolute;
+  margin:15px;
+  overflow:scroll;
+  bottom:$navbar-height*2;
+  height:100%;
+}
+.chat-message{
+  width:100%;
+  height:auto;
+  border-top:solid 1pt $kuler-first;
+  padding:5px;
+}
+.chat-form{
+  position:absolute;
+  bottom:$navbar-height;
+  width:100%;
+}
+.room-content{
   position:relative;
-  top: $navbar-height;
-  height: auto;
-  bottom: $navbar-height;
+  margin-right:$chat-width;
+  height:100%;
+  overflow-y:auto;
 }
 
 .browsehappy {
@@ -18,10 +72,16 @@ $icon-font-path: "../../bower_components/bootstrap-sass-official/assets/fonts/bo
   padding: 0.2em 0;
 }
 
-/* Space out content a bit */
+html{
+  height:100%;
+  width:100%;
+  @media (max-width:1100px){
+    width:1100px;
+  }
+}
 body {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  min-height:100%;
+  position:relative;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */

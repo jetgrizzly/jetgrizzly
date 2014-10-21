@@ -33,7 +33,7 @@ $brand-danger:          #d9534f !default;
 //## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-$body-bg:               $kuler-first;
+$body-bg:               $kuler-second;
 //** Global text color on `<body>`.
 $text-color:            $kuler-fifth;
 
@@ -380,7 +380,7 @@ $navbar-default-toggle-border-color:       #ddd !default;
 // Inverted navbar
 // Reset inverted navbar basics
 $navbar-inverse-color:                      $gray-light !default;
-$navbar-inverse-bg:                         #222 !default;
+$navbar-inverse-bg:                         $kuler-first !default;
 $navbar-inverse-border:                     darken($navbar-inverse-bg, 10%) !default;
 
 // Inverted navbar links
