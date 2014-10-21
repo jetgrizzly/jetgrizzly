@@ -5,8 +5,8 @@ module = angular.module('jetgrizzlyApp.Account',['ui.router']).config(function($
     url:'/account',
     parent:'app',
     templateUrl:'views/account/account.html',
-    controller:function($scope,currentUser){
-      $scope.user = currentUser;
+    controller:function($scope,user){
+      $scope.user = user;
     }
   });
   // $stateProvider.state('register',{
