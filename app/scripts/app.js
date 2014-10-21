@@ -17,19 +17,23 @@ var module = angular.module('jetgrizzlyApp', [
   'ui.bootstrap',
   'firebase'
 ]);
+  // module.run(['SimpleLogin', function(SimpleLogin) {
+  //   console.log('run'); //debug
+  //   SimpleLogin.getUser();
+  // }])
+
 module.config(function($stateProvider,$urlRouterProvider){
   $urlRouterProvider.otherwise('/');
   $stateProvider.state('app',{
     abstract:true,
     templateUrl:'views/main.html',
     resolve: {
-      currentUser : function(Auth){
-        return Auth.$getCurrentUser();
+      user : function(SimpleLogin){
+        return SimpleLogin.getUser();
       }
     },
-    controller:function($scope,Auth,currentUser){
-      $scope.auth = Auth;
-      $scope.currentUser = currentUser;
+    controller:function($scope,user, SimpleLogin){
+      $scope.user = user;
     }
   });
 })
