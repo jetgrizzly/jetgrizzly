@@ -1,5 +1,6 @@
 'use strict';
 /*jshint -W079 */
+(function(){
 var module = angular.module('jetgrizzlyApp.Auth', ['ui.router','firebase']);
 var previousLocation = null;
 module.config(function ($stateProvider) {
@@ -46,8 +47,8 @@ module.config(function ($stateProvider) {
         });
       }
   });
-});
-module.factory('SimpleLogin', function ($timeout, $q, config,$firebaseSimpleLogin, $rootScope) {
+})
+  .factory('SimpleLogin', function ($timeout, $q, config,$firebaseSimpleLogin, $rootScope) {
   var ref = new Firebase(config.firebase.url+'/');
   var auth = $firebaseSimpleLogin(ref);
   // var listeners = [];
@@ -104,3 +105,5 @@ module.factory('SimpleLogin', function ($timeout, $q, config,$firebaseSimpleLogi
 
   return functions;
 });
+
+})();
