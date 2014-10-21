@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-var module = angular.module('jetgrizzlyApp', [
+angular.module('jetgrizzlyApp', [
   'jetgrizzlyApp.Auth',
   'jetgrizzlyApp.chat',
   'jetgrizzlyApp.Account',
@@ -16,13 +16,8 @@ var module = angular.module('jetgrizzlyApp', [
   'ui.router',
   'ui.bootstrap',
   'firebase'
-]);
-  // module.run(['SimpleLogin', function(SimpleLogin) {
-  //   console.log('run'); //debug
-  //   SimpleLogin.getUser();
-  // }])
-
-module.config(function($stateProvider,$urlRouterProvider){
+])
+  .config(function($stateProvider,$urlRouterProvider){
   $urlRouterProvider.otherwise('/');
   $stateProvider.state('app',{
     abstract:true,
