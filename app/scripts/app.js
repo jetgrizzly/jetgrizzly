@@ -1,5 +1,5 @@
 'use strict';
-
+/*jshint -W079 */
 /**
  * @ngdoc overview
  * @name jetgrizzlyApp
@@ -18,7 +18,7 @@ var module = angular.module('jetgrizzlyApp', [
   'firebase'
 ]);
 module.config(function($stateProvider,$urlRouterProvider){
-  $urlRouterProvider.otherwise("/");
+  $urlRouterProvider.otherwise('/');
   $stateProvider.state('app',{
     abstract:true,
     templateUrl:'views/main.html',
@@ -31,7 +31,7 @@ module.config(function($stateProvider,$urlRouterProvider){
       $scope.auth = Auth;
       $scope.currentUser = currentUser;
     }
-  })
+  });
 })
 .factory('config',function(){
   return {

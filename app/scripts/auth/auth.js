@@ -1,5 +1,5 @@
-"use strict";
-
+'use strict';
+/*jshint -W079 */
 var module = angular.module('jetgrizzlyApp.Auth', ['ui.router','firebase']);
 var previousLocation = null;
 module.config(function ($stateProvider) {

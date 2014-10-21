@@ -1,3 +1,4 @@
+/*jshint -W020 */
 'use strict';
 module = angular.module('jetgrizzlyApp.Account',['ui.router']).config(function($stateProvider){
   $stateProvider.state('account',{
