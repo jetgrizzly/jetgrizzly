@@ -1,6 +1,8 @@
 /*jshint -W020 */
 'use strict';
-module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function ($stateProvider) {
+(function(){
+
+var module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function ($stateProvider) {
   $stateProvider.state('lobby', {
     url: '/',
     parent: 'app',
@@ -119,4 +121,4 @@ module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function ($s
       }
     };
 });
-
+})();

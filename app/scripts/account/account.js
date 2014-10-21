@@ -1,6 +1,7 @@
 /*jshint -W020 */
 'use strict';
-module = angular.module('jetgrizzlyApp.Account',['ui.router']).config(function($stateProvider){
+(function(){
+var module = angular.module('jetgrizzlyApp.Account',['ui.router']).config(function($stateProvider){
   $stateProvider.state('account',{
     url:'/account',
     parent:'app',
@@ -17,3 +18,4 @@ module = angular.module('jetgrizzlyApp.Account',['ui.router']).config(function($
   //   }
   // });
 });
+})()
