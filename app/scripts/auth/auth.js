@@ -21,12 +21,13 @@ module.config(function ($stateProvider) {
     url: '/register',
     parent: 'app',
     templateUrl: 'views/auth/register.html',
-    controller: function ($scope, $state, simpleLogin) {
+    controller: function ($scope, $state, SimpleLogin, currentUser) {
       $scope.user = {};
       $scope.registerUser = function() {
         SimpleLogin.createAccount($scope.user.email, $scope.user.password)
           .then(function(user) {
-            $state.go('login')
+            console.log(user, "Registered")
+            $state.go('lobby')
           })
       }
     }
@@ -34,10 +35,10 @@ module.config(function ($stateProvider) {
   $stateProvider.state('logout', {
     url: '/logout',
     parent: 'app',
-    controller: function (SimpleLogin, $state) {
-      SimpleLogin.logout();
-      $state.go('lobby');
-    }
+    controller: function (SimpleLogin, $state, currentUser, $scope) {
+        SimpleLogin.logout();
+        $state.go('login');
+      }
   });
 });
 module.factory('SimpleLogin', function ($timeout, $q, config,$firebaseSimpleLogin, $rootScope) {
@@ -51,7 +52,7 @@ module.factory('SimpleLogin', function ($timeout, $q, config,$firebaseSimpleLogi
   var functions = {
     user: null,
     logout: function() {
-      auth.$logout
+      auth.$logout();
     },
     getUser: function() {
       return auth.$getCurrentUser();
@@ -62,6 +63,7 @@ module.factory('SimpleLogin', function ($timeout, $q, config,$firebaseSimpleLogi
         password: password,
         rememberMe: true
       });
+      console.log(email, "logged in.")
       return id;
     },
     createAccount: function(email, pass) {

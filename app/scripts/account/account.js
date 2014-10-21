@@ -9,11 +9,11 @@ module = angular.module('jetgrizzlyApp.Account',['ui.router']).config(function($
       $scope.user = currentUser;
     }
   });
-  $stateProvider.state('register',{
-    url:'/register',
-    parent: 'guest',
-    templateUrl:'views/account/register.html',
-    controller:function($scope){
-    }
-  });
+  // $stateProvider.state('register',{
+  //   url:'/register',
+  //   parent: 'guest',
+  //   templateUrl:'views/account/register.html',
+  //   controller:function($scope){
+  //   }
+  // });
 });
