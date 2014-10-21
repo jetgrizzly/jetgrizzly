@@ -8,13 +8,16 @@
  * Controller of the jetgrizzlyApp
  */
 angular.module('jetgrizzlyApp')
-  .controller('VideoqueueCtrl', ['$scope', 'userPresence', '$window', 'config', '$firebase', function ($scope, userPresence, $window, config, $firebase) {
+  .controller('VideoqueueCtrl', ['$rootScope', '$scope', 'userPresence', '$window', 'config', '$firebase', function ($rootScope, $scope, userPresence, $window, config, $firebase) {
     //Declare variables
     $scope.totalUsers = 0;
+    // $scope.ytRegex = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
 
-    var ref = new $window.Firebase(config.firebase.url+'/queue/');
-    var sync = $firebase(ref);
+    var queueRef = new $window.Firebase(config.firebase.url+'/queue/');
+    var sync = $firebase(queueRef);
     $scope.queue = sync.$asArray();
+
+    var videoRef = new $window.Firebase(config.firebase.url+'/youTube');
 
     //Listen for new users to lobby (emitted from UserPresenceFactory)
     $scope.$on('onOnlineUser', function() {
@@ -23,9 +26,18 @@ angular.module('jetgrizzlyApp')
       });
     });
 
+    $scope.$on('videoEnded', function() {
+      $scope.$apply(function() {
+        var newVid = $scope.queue[0].$value;
+        $scope.removeFirst();
+        videoRef.child('currentVideo').set(newVid);
+      });
+    });
+
     $scope.addToQueue = function(item) {
-      console.log(item);
-      $scope.queue.$add(item);
+      var id = item.split('v=')[1];
+      console.log(item, id);
+      $scope.queue.$add(id);
     };
 
     $scope.removeFirst = function() {
