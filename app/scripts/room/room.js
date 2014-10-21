@@ -5,8 +5,8 @@ module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function ($s
     url: '/',
     parent: 'app',
     templateUrl: 'views/room/room.html',
-    controller: function ($scope, currentUser) {
-      $scope.user = currentUser;
+    controller: function ($scope, user) {
+      $scope.user = user;
     }
   });
 })
