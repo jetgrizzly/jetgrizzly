@@ -7,9 +7,15 @@
 </div>
 <div class="row">
   <div class="input">
-    <input type="text" ng-model="item">
-    <button class="submit" ng-click="addToQueue(item)">Add</button>
-    <button class="submit" ng-click="removeFirst()">Remove</button>
+
+    <form name="queueForm">
+      <input type="text" ng-model="item" name="vidInput">
+      <span class="error" ng-show="queueForm.vidInput.$error.required">This field is required</span>
+      <span class="error" ng-show="queueForm.vidInput.$error.ng-pattern">URL Must be from Youtube</span>
+      <button class="submit" ng-click="addToQueue(item)">Add</button>
+      <button class="submit" ng-click="removeFirst()">Remove</button>
+    </form>
+
     <div class="userQueue">
       <h4>There are currently: {{ totalUsers }} users here.</h4>
       <ol>
