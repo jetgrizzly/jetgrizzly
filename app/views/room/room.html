@@ -1,5 +1,5 @@
-<div ng-show="currentUser">
-	<h2>{{name}} </h2>
-  <div ng-include="'views/room/playback.html'" ng-controller="VideoqueueCtrl"></div>
-  <div ng-include="'views/room/chat.html'" ng-controller="chatController"></div>
+<div class="fullsize" ng-show="currentUser">
+<h2>{{name}} </h2>
+  <div class="room-chat" ng-include="'views/room/chat.html'" ng-controller="chatController"></div>
+  <div class='room-content' ng-include="'views/room/playback.html'" ng-controller="VideoqueueCtrl"></div>
 </div>

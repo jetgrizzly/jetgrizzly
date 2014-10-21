@@ -1,4 +1,4 @@
-<div class="navbar navbar-inverse navbar-fixed-top">
+<header class="navbar navbar-inverse navbar-fixed-top">
   <a class="navbar-brand" ui-sref="lobby">jetgrizzly</a>
   <ul class="nav navbar-nav">
     <li><a ui-sref="account" ng-show="currentUser">MyAccount</a></li>
@@ -6,9 +6,8 @@
     <li><a ui-sref="login" ng-show="!currentUser">Log In</a></li>
     <li><a ui-sref="logout" ng-show="currentUser">Log Out</a></li>
   </ul>
-</div>
-<div id="maincontainer" class="container">
-  <ui-view></ui-view>
+</header>
+<div id="maincontainer" ui-view>
 </div>
 <div class="footer navbar navbar-inverse navbar-fixed-bottom">
   <p><span class="glyphicon glyphicon-heart"></span> created by team jetgrizzly: Alex Jeng, Jose Merino, Moxi Zhou, Jeff Gladchun</p>
