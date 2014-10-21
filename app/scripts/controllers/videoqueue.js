@@ -31,4 +31,4 @@ angular.module('jetgrizzlyApp')
     $scope.removeFirst = function() {
       $scope.queue.$remove($scope.queue[0]);
     };
-  }])
+  }]);

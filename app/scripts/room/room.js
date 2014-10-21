@@ -1,3 +1,4 @@
+/*jshint -W020 */
 'use strict';
 module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function ($stateProvider) {
   $stateProvider.state('lobby', {
@@ -49,7 +50,7 @@ module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function ($s
 
 
         $window.onYouTubeIframeAPIReady = function () {
-          var isPlaying
+          var isPlaying;
           var youTubeFirebase = new Firebase('https://blistering-heat-6745.firebaseio.com/youTube');
 
           youTubeFirebase.once('value', function(snap){
@@ -98,7 +99,7 @@ module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function ($s
 
 
           if (newValue !== oldValue) {
-            console.log("setting new video value")
+            console.log('setting new video value');
             var firebase = new Firebase(config.firebase.url+'/youTube');
             firebase.child('startTime').set(Date.now());
             firebase.child('isPlaying').set(true);

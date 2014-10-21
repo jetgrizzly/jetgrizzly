@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jetgrizzlyApp.chat', ["firebase"])
+angular.module('jetgrizzlyApp.chat', ['firebase'])
 	.controller('chatController', function($scope, $firebase, $location, $anchorScroll,config) {
     var myChat = new Firebase(config.firebase.url+'/messages');
     var limit = myChat.limit(30);
