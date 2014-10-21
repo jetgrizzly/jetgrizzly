@@ -8,10 +8,12 @@
   <div class="input">
     <input type="text" ng-model="item">
     <button class="submit" ng-click="addToQueue(item)">Add</button>
+    <button class="submit" ng-click="removeFirst()">Remove</button>
     <div class="userQueue">
-      {{ myQueue }}
-      {{ userQueue }}
-      {{ totalUsers }}
+      <h4>There are currently: {{ totalUsers }} users here.</h4>
+      <ol>
+        <li ng-repeat="item in queue">{{ item.$value }}</li>
+      </ol>
     </div>
   </div>
 </div>

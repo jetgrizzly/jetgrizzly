@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "dependencies": {
     "express": "^4.9.7",
+    "grunt-contrib-sass": "^0.8.1",
     "http": "0.0.0"
   },
   "devDependencies": {
