@@ -14,9 +14,9 @@ module.config(function ($stateProvider) {
           .then(function(user) {
             $state.go('lobby', $stateParams, {
               reload: true
-            })
+            });
           });
-      }
+      };
     }
   });
   $stateProvider.state('register', {
@@ -28,12 +28,12 @@ module.config(function ($stateProvider) {
       $scope.registerUser = function() {
         SimpleLogin.createAccount($scope.user.email, $scope.user.password)
           .then(function(user) {
-            console.log(user, "Registered")
+            console.log(user, 'Registered');
             $state.go('lobby', $stateParams, {
               reload: true
-            })
-          })
-      }
+            });
+          });
+      };
     }
   });
   $stateProvider.state('logout', {
@@ -57,7 +57,7 @@ module.factory('SimpleLogin', function ($timeout, $q, config,$firebaseSimpleLogi
       // angular.forEach(listeners, function(fn) {
       //   fn(user || null);
       // })
-    })
+    });
   };
   var functions = {
     user: null,
@@ -73,14 +73,14 @@ module.factory('SimpleLogin', function ($timeout, $q, config,$firebaseSimpleLogi
         password: password,
         rememberMe: true
       });
-      console.log(email, "logged in.")
+      console.log(email, 'logged in.');
       return id;
     },
     createAccount: function(email, pass) {
       return auth.$createUser(email, pass)
         .then(function() {
-          return functions.login(email, pass)
-        })
+          return functions.login(email, pass);
+        });
     },
     // watch: function(cb, $scope) {
     //   functions.getUser().then(function(user) {
