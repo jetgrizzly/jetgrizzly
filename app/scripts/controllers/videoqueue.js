@@ -28,16 +28,15 @@ angular.module('jetgrizzlyApp')
 
     $scope.$on('videoEnded', function() {
       $scope.$apply(function() {
-        var newVid = $scope.queue[0].$value;
+        var newVid = $scope.queue[0].$value.split('v=')[1];
         $scope.removeFirst();
         videoRef.child('currentVideo').set(newVid);
       });
     });
 
     $scope.addToQueue = function(item) {
-      var id = item.split('v=')[1];
-      console.log(item, id);
-      $scope.queue.$add(id);
+      console.log(item);
+      $scope.queue.$add(item);
     };
 
     $scope.removeFirst = function() {
