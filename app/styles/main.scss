@@ -29,8 +29,44 @@ $chat-width: 400px;
   width:100%;
 }
 .playback {
-  margin: 0 auto;
+  margin: 15px auto;
   width:650px;
+}
+div.usercount {
+  text-align: center;
+}
+div.queue{
+  margin-top: 5px;
+}
+div.queueList{
+  margin-top: 15px;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+ul.queueList {
+  margin: 0 0 0 0px;
+  padding: 0;
+  list-style-type: none;
+  font-size: 16px;
+  text-align: center;
+}
+span.error {
+  font-size: 18px;
+  margin: 10px 0 0 0;
+}
+input.queueInput {
+  background-color: #1E262D;
+  height: 40px;
+  width: 480px;
+  padding: 5px;
+  font-size: 20px;
+  color: #cccccc;
+}
+button.submit {
+  color:#cccccc;
+  margin: 0px 5px 1px 5px;
+  vertical-align: middle;
 }
 .room-chat {
   position:absolute;
