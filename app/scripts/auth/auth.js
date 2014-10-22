@@ -48,8 +48,8 @@ module.config(function ($stateProvider) {
       }
   });
 })
-  .factory('SimpleLogin', function ($timeout, $q, config,$firebaseSimpleLogin, $rootScope) {
-  var ref = new Firebase(config.firebase.url+'/');
+  .factory('SimpleLogin', function ($timeout, $q, config,$firebaseSimpleLogin, $rootScope, $window) {
+  var ref = new $window.Firebase(config.firebase.url+'/');
   var auth = $firebaseSimpleLogin(ref);
   // var listeners = [];
   var statusChange = function() {
