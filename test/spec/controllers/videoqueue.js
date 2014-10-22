@@ -1,22 +1,23 @@
 'use strict';
 
-describe('Controller: MainCtrl', function () {
+describe('Controller: VideoqueueCtrl', function () {
 
   // load the controller's module
   beforeEach(module('jetgrizzlyApp'));
 
-  var MainCtrl,
+  var VideoqueueCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    MainCtrl = $controller('MainCtrl', {
+    VideoqueueCtrl = $controller('VideoqueueCtrl', {
       $scope: scope
     });
   }));
 
   it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
+    expect(scope.addToQueue).not.toBe(undefined);
+    expect(scope.removeFirst).not.toBe(undefined);
   });
 });
