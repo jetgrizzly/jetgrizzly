@@ -26,6 +26,7 @@ module.exports = function(config) {
       'bower_components/firebase-simple-login/firebase-simple-login.js',
       'bower_components/mockfirebase/dist/mockfirebase.js',
       'bower_components/angularfire/dist/angularfire.min.js',
+      'app/scripts/*.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
       'test/spec/**/*.js'

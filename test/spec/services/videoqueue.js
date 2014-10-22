@@ -1,18 +1,18 @@
-'use strict';
+// 'use strict';
 
-describe('Service: videoQueue', function () {
+// describe('Service: videoQueue', function () {
 
-  // load the service's module
-  beforeEach(module('jetgrizzlyApp'));
+//   // load the service's module
+//   beforeEach(module('jetgrizzlyApp'));
 
-  // instantiate service
-  var videoQueue;
-  beforeEach(inject(function (_videoQueue_) {
-    videoQueue = _videoQueue_;
-  }));
+//   // instantiate service
+//   var videoQueue;
+//   beforeEach(inject(function (_videoQueue_) {
+//     videoQueue = _videoQueue_;
+//   }));
 
-  it('should do something', function () {
-    expect(!!videoQueue).toBe(true);
-  });
+//   it('should do something', function () {
+//     expect(!!videoQueue).toBe(true);
+//   });
 
-});
+// });
