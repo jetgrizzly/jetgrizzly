@@ -41,16 +41,12 @@ module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function ($s
       template: '<div></div>',
       link: function (scope, element) {
         //Load the iFrame player API code asynchronously
-        var tag = document.createElement('script');
-        tag.src = 'https://www.youtube.com/iframe_api';
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        var tag = element.append('<script src="https://www.youtube.com/iframe_api">');
 
         var player;
 
-
         $window.onYouTubeIframeAPIReady = function () {
-          var isPlaying
+          var isPlaying;
           var youTubeFirebase = new $window.Firebase(config.firebase.url+'/youTube');
           var videoFirebase = new $window.Firebase(config.firebase.url+'/youTube/currentVideo')
 
@@ -62,7 +58,6 @@ module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function ($s
               console.log('video should be playing');
               var currentVideo = youtubeInfo.currentVideo;
               var startTime = Math.floor((Date.now() - youtubeInfo.startTime) / 1000);
-              // console.log($scope.yt.start);
               console.log(startTime);
               console.log(currentVideo);
 
@@ -86,9 +81,7 @@ module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function ($s
                     }
                   }
                 }
-               // startSeconds: startTime
              });
-              // player.loadVideoById({'videoId': currentVideo, 'startSeconds': startTime });
             }
             else {
               player = new window.YT.Player(element.children()[0], {
@@ -125,10 +118,7 @@ module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function ($s
           });
         };
 
-        //$rootScope.$broadcast('onOnlineUser'); NEED TO USE LATER
         scope.$watch('videoid', function (newValue, oldValue) {
-
-
           if (newValue !== oldValue) {
             console.log("setting new video value")
             var firebase = new Firebase(config.firebase.url+'/youTube');
