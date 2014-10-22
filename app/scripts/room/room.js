@@ -15,7 +15,6 @@ module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function ($s
     width: 640,
     height: 390
    };
-  
 
   //Link up with songqueue, insert new property of videoID
   // i.e. videoID: song.split('=')[1]
@@ -135,17 +134,8 @@ module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function ($s
             var firebase = new Firebase(config.firebase.url+'/youTube');
             firebase.child('startTime').set(Date.now());
             firebase.child('isPlaying').set(true);
-            firebase.child('currentVideo').set(newValue);
-
-        
-            
+            firebase.child('currentVideo').set(newValue); 
           }
-
-          //TODO MAKE A LISTENER FOR FIREBASE CHANGE
-
-
-          //Whenever I play video, I should be recording it's timer too
-          //YouTube will instantly change the currently playing video
         });
       }
     };
