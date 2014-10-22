@@ -28,15 +28,27 @@ angular.module('jetgrizzlyApp')
 
     $scope.$on('videoEnded', function() {
       $scope.$apply(function() {
-        var newVid = $scope.queue[0].$value.split('v=')[1];
-        $scope.removeFirst();
-        videoRef.child('currentVideo').set(newVid);
+        console.log('Video Queue CTRL has heard videoEnded Event');
+        if ($scope.queue.length > 0) {
+          var newVid = $scope.queue[0].$value.split('v=')[1];
+          console.log('Newvid is: ', newVid);
+          $scope.removeFirst();
+          videoRef.child('currentVideo').set(newVid);
+        } else {
+          console.log('Video Queue CTRL: There are no videos to play.');
+        }
       });
     });
 
     $scope.addToQueue = function(item) {
-      console.log(item);
+      console.log('Link added: '+item);
       $scope.queue.$add(item);
+      console.log('Queue size: '+$scope.queue.length);
+
+      //This function needs to know: 1) If there is a video currently playing, 2) The current size of the queue
+      //If queue.length > 0, push item into queue
+      //If queue.length === 0 && video is playing, push item into queue
+      //If queue.length === 0 && video is not playing, change currentVideo in firebase and start playing video right away
     };
 
     $scope.removeFirst = function() {
