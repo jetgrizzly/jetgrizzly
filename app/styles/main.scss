@@ -29,23 +29,30 @@ $chat-width: 400px;
   width:100%;
 }
 .playback {
-  margin: 35px auto;
+  margin: 15px auto;
   width:650px;
 }
-div.input {
-
+div.usercount {
+  text-align: center;
+}
+div.queue{
+  margin-top: 5px;
+}
+div.queueList{
+  margin-top: 10px;
 }
 input.queueInput {
   background-color: #1E262D;
   height: 40px;
-  width: 400px;
+  width: 480px;
   padding: 5px;
   font-size: 20px;
   color: #cccccc;
 }
 button.submit {
   color:#cccccc;
-  margin: 1px 5px 1px 5px;
+  margin: 0px 5px 1px 5px;
+  vertical-align: middle;
 }
 .room-chat {
   position:absolute;

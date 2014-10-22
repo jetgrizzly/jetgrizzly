@@ -1,24 +1,25 @@
 <div class="row">
   <div class="playback" ng-controller="PlayerController">
+    <div class="usercount">
+      <h4>Current Audience: {{ totalUsers }} Active Users</h4>
+    </div>
     <youtube width="{{yt.width}}" height="{{yt.height}}" videoid="{{yt.videoid}}"></youtube>
-  </div>
-</div>
-<div class="row-fluid">
-  <div class="input col-md-6 col-md-offset-3">
+  
+    <div class="queue">
+      <form name="queueForm">
+        <input type="text" ng-model="item" ng-minlength="6" ng-pattern="/^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/" class="queueInput" name="vidInput">
+        <button class="submit btn btn-default" ng-click="addToQueue(item)">Add</button>
+        <button class="submit btn btn-default" ng-click="removeFirst()">Remove</button>
+        <span class="error" ng-show="queueForm.vidInput.$error.minlength">This field is required</span>
+        <span class="error" ng-show="queueForm.vidInput.$error.pattern">URL Must be from Youtube</span>
+      </form>
 
-    <form name="queueForm">
-      <input type="text" ng-model="item" ng-minlength="6" ng-pattern="/^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/" class="queueInput" name="vidInput">
-      <button class="submit btn btn-default" ng-click="addToQueue(item)">Add</button>
-      <button class="submit btn btn-default" ng-click="removeFirst()">Remove</button>
-      <span class="error" ng-show="queueForm.vidInput.$error.minlength">This field is required</span>
-      <span class="error" ng-show="queueForm.vidInput.$error.pattern">URL Must be from Youtube</span>
-    </form>
-
-    <div class="userQueue">
-      <h4>There are currently: {{ totalUsers }} users here.</h4>
-      <ol>
-        <li ng-repeat="item in queue">{{ item.$value }}</li>
-      </ol>
+      <div class="queueList">
+        <ol>
+          <li ng-repeat="item in queue">{{ item.$value }}</li>
+        </ol>
+      </div>
     </div>
   </div>
 </div>
+  
