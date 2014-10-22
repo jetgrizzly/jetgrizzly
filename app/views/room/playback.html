@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row-fluid">
   <div class="playback" ng-controller="PlayerController">
     <div class="usercount">
       <h4>Current Audience: {{ totalUsers }} Active Users</h4>
@@ -7,7 +7,7 @@
   
     <div class="queue">
       <form name="queueForm">
-        <input type="text" ng-model="item" ng-minlength="6" ng-pattern="/^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/" class="queueInput" name="vidInput">
+        <input type="text" ng-model="item" ng-minlength="6" ng-pattern="/^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/" class="queueInput" name="vidInput" placeholder="Enter a Youtube URL Here">
         <button class="submit btn btn-default" ng-click="addToQueue(item)">Add</button>
         <button class="submit btn btn-default" ng-click="removeFirst()">Remove</button>
         <span class="error" ng-show="queueForm.vidInput.$error.minlength">This field is required</span>
@@ -15,9 +15,9 @@
       </form>
 
       <div class="queueList">
-        <ol>
-          <li ng-repeat="item in queue">{{ item.$value }}</li>
-        </ol>
+        <ul class="queueList">
+          <li ng-repeat="item in queue">{{ $index + 1 }}. {{ item.$value }}</li>
+        </ul>
       </div>
     </div>
   </div>
