@@ -28,11 +28,20 @@ angular.module('jetgrizzlyApp')
 
     $scope.$on('videoEnded', function() {
       $scope.$apply(function() {
+        //This is showing as undefined
         var newVid = $scope.queue[0].$value.split('v=')[1];
+        console.log("Newvid is: ", newVid);
         $scope.removeFirst();
         videoRef.child('currentVideo').set(newVid);
       });
     });
+
+    $scope.testEvent = function() {
+      var newVid = $scope.queue[0].$value.split('v=')[1];
+      console.log("Newvid is: ", newVid);
+      $scope.removeFirst();
+      videoRef.child('currentVideo').set(newVid);
+    };
 
     $scope.addToQueue = function(item) {
       console.log(item);
