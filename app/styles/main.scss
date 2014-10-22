@@ -29,8 +29,23 @@ $chat-width: 400px;
   width:100%;
 }
 .playback {
-  margin: 0 auto;
+  margin: 35px auto;
   width:650px;
+}
+div.input {
+
+}
+input.queueInput {
+  background-color: #1E262D;
+  height: 40px;
+  width: 400px;
+  padding: 5px;
+  font-size: 20px;
+  color: #cccccc;
+}
+button.submit {
+  color:#cccccc;
+  margin: 1px 5px 1px 5px;
 }
 .room-chat {
   position:absolute;

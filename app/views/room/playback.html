@@ -1,17 +1,15 @@
 <div class="row">
   <div class="playback" ng-controller="PlayerController">
     <youtube width="{{yt.width}}" height="{{yt.height}}" videoid="{{yt.videoid}}"></youtube>
-    <br>
-    <input type="text" ng-model="yt.videoid">Input video id here</input>
   </div>
 </div>
-<div class="row">
-  <div class="input">
+<div class="row-fluid">
+  <div class="input col-md-6 col-md-offset-3">
 
     <form name="queueForm">
-      <input type="text" ng-model="item" ng-minlength="6" ng-pattern="/^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/" name="vidInput">
-      <button class="submit" ng-click="addToQueue(item)">Add</button>
-      <button class="submit" ng-click="removeFirst()">Remove</button>
+      <input type="text" ng-model="item" ng-minlength="6" ng-pattern="/^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/" class="queueInput" name="vidInput">
+      <button class="submit btn btn-default" ng-click="addToQueue(item)">Add</button>
+      <button class="submit btn btn-default" ng-click="removeFirst()">Remove</button>
       <span class="error" ng-show="queueForm.vidInput.$error.minlength">This field is required</span>
       <span class="error" ng-show="queueForm.vidInput.$error.pattern">URL Must be from Youtube</span>
     </form>
