@@ -18,4 +18,4 @@ var module = angular.module('jetgrizzlyApp.Account',['ui.router']).config(functi
   //   }
   // });
 });
-})()
+})();
