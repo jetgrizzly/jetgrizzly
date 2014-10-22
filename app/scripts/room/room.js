@@ -1,4 +1,3 @@
-/*jshint -W020 */
 'use strict';
 (function(){
 
@@ -118,6 +117,10 @@ var module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function
 
 
           }
+
+          //TODO MAKE A LISTENER FOR FIREBASE CHANGE
+
+
           //Whenever I play video, I should be recording it's timer too
           //YouTube will instantly change the currently playing video
         });
