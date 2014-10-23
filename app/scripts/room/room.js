@@ -1,7 +1,6 @@
 'use strict';
 /*jshint -W020 */
-(function(){
-var module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function ($stateProvider) {
+module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function ($stateProvider) {
   $stateProvider.state('lobby', {
     url: '/',
     parent: 'app',
@@ -54,7 +53,7 @@ var module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function
             console.log('A video is currently playing: '+currentVideo);
             console.log('Start time: '+startTime);
 
-            player = new window.YT.Player(element.children()[0], {
+            player = new $window.YT.Player(element.children()[0], {
               playerVars: {
                 autoplay: 1,
                 html5: 1,
@@ -92,7 +91,7 @@ var module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function
           // If no video is currently playing, check to see if there 
           //   are any in the queue
           } else {
-            player = new window.YT.Player(element.children()[0], {
+            player = new $window.YT.Player(element.children()[0], {
               playerVars: {
                 autoplay: 0,
                 html5: 1,
@@ -149,5 +148,4 @@ var module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function
     }
   };
 });
-})();
 
