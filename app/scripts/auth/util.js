@@ -8,5 +8,4 @@ angular.module('firebase.utils', ['firebase'])
 	return {
 		ref: firebaseRef
 	};
-
 });
