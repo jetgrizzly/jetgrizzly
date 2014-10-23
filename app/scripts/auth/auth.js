@@ -1,10 +1,8 @@
 'use strict';
 /*jshint -W079 */
-
 (function(){
 var module = angular.module('jetgrizzlyApp.Auth', ['ui.router', 'firebase']);
 var previousLocation = null;
-
 module.config(function ($stateProvider) {
   $stateProvider.state('login', {
     url: '/login',
@@ -24,7 +22,6 @@ module.config(function ($stateProvider) {
     controller: 'LogoutController'
   });
 });
-
 module.controller('LoginController', function ($scope, SimpleLogin, $state, $stateParams) {
   $scope.user = {};
   $scope.login = function() {
@@ -36,7 +33,6 @@ module.controller('LoginController', function ($scope, SimpleLogin, $state, $sta
       });
   };
 });
-
 module.controller('RegisterController', function ($scope, $state, SimpleLogin, $stateParams) {
   $scope.user = {};
   $scope.registerUser = function() {
@@ -49,14 +45,12 @@ module.controller('RegisterController', function ($scope, $state, SimpleLogin, $
       });
   };
 });
-
 module.controller('LogoutController', function (SimpleLogin, $state, $scope, $stateParams) {
   SimpleLogin.logout();
   $state.go('login', $stateParams, {
     reload: true
   });
 });
-
 module.factory('SimpleLogin', ['$timeout', '$window', '$firebaseSimpleLogin', '$rootScope', function ($timeout, $window, $firebaseSimpleLogin, $rootScope) {
   var ref = new $window.Firebase('https://blistering-heat-6745.firebaseio.com');
   var auth = $firebaseSimpleLogin(ref);
@@ -89,11 +83,9 @@ module.factory('SimpleLogin', ['$timeout', '$window', '$firebaseSimpleLogin', '$
         });
     },
   };
-
   $rootScope.$on('firebaseSimpleLogin:login', statusChange);
   $rootScope.$on('firebaseSimpleLogin:logout', statusChange);
   statusChange();
-
   return functions;
 }]);
 })();
