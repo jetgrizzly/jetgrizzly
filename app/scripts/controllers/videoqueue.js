@@ -46,11 +46,11 @@ angular.module('jetgrizzlyApp')
         console.log('Queue size: '+$scope.queue.length+'; Player is in state: '+$scope.playerState);
         //The if statement below never gets triggered because playerState never
         //gets set to 0 somehow... or it gets set back to 1 insanely quickly...
-        if ($scope.queue.length === 1 && $scope.playerState === 0) {
+        if ($scope.queue.length === 1 && ($scope.playerState === 0 || $scope.playerState === undefined)) {
           var newVid = $scope.queue[0].$value.split('v=')[1];
           console.log('Newvid is: ', newVid);
-          $scope.removeFirst();
           videoRef.child('currentVideo').set(newVid);
+          $scope.removeFirst();
         }
       });
 
