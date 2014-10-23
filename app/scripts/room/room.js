@@ -123,12 +123,12 @@ module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function ($s
         //And there are videos in the queue, but setting 'startTime' and 'isPlaying' triggers a new round of
         //'child_changed' events, which sets off another. When the queue is empty and the first video is entered, this
         //kicks off an infinite loop. We should change it so that we don't listen for changes on 'startTime' or 'isPlaying'
-        videoFirebase.on('value', function(childSnapshot){
+        videoFirebase.on('value', function(newValue){
            console.log('Room.js sees new video');
            youTubeFirebase.child('startTime').set(Date.now());
            youTubeFirebase.child('isPlaying').set(true);
-           console.log('childSnapshot', childSnapshot);
-           player.loadVideoById({'videoId': childSnapshot.val()}); 
+           console.log('newValue', newValue);
+           player.loadVideoById({'videoId': newValue.val()}); 
         });
       };
 
