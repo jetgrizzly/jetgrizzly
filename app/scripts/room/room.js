@@ -44,8 +44,9 @@ module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function ($s
 
         youTubeFirebase.once('value', function(snap){
           var youtubeInfo = snap.val();
-          console.log(youtubeInfo.isPlaying);
+          console.log('Video currently playing is ', youtubeInfo.isPlaying);
 
+          // Check to see if a video is currently playing
           if(youtubeInfo.isPlaying){
             var currentVideo = youtubeInfo.currentVideo;
             var startTime = Math.floor((Date.now() - youtubeInfo.startTime) / 1000);
@@ -67,10 +68,13 @@ module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function ($s
                   console.log('youtube player has a stateChange');
                   if (event.data === 0){
                     console.log('youtube player video ended');
+                    youTubeFirebase.child('isPlaying').set(false);
+                    youTubeFirebase.child('currentVideo').set('');
                     $rootScope.playerState = 1;
                     $rootScope.$broadcast('videoEnded');
                   } else if (event.data === 1) {
                     console.log('Player is playing');
+                    youTubeFirebase.child('isPlaying').set(true);
                     $rootScope.playerState = 1;
                   } else if (event.data === 2) {
                     console.log('Player is paused');
@@ -84,6 +88,8 @@ module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function ($s
                 }
               }
            });
+          // If no video is currently playing, check to see if there 
+          //   are any in the queue
           } else {
             player = new window.YT.Player(element.children()[0], {
               playerVars: {
@@ -95,14 +101,20 @@ module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function ($s
               width: scope.width,
               videoId: scope.videoid,
               events: {
+                'onReady': function(){
+                  youTubePlayerReady(player);
+                },
                 'onStateChange': function(event){
                   console.log('youtube player has a stateChange');
                   if (event.data === 0){
                     console.log('youtube player video ended');
+                    youTubeFirebase.child('isPlaying').set(false);
+                    youTubeFirebase.child('currentVideo').set('');
                     $rootScope.playerState = 0;
                     $rootScope.$broadcast('videoEnded');
                   } else if (event.data === 1) {
                     console.log('Player is playing');
+                    youTubeFirebase.child('isPlaying').set(true);
                     $rootScope.playerState = 1;
                   } else if (event.data === 2) {
                     console.log('Player is paused');
@@ -115,32 +127,24 @@ module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function ($s
                   }
                 }
               }
-            });       
+            });
           }
         });
-        
-        //Alex, there is an issue with this listener. Right now it works fine when there is already a video playing
-        //And there are videos in the queue, but setting 'startTime' and 'isPlaying' triggers a new round of
-        //'child_changed' events, which sets off another. When the queue is empty and the first video is entered, this
-        //kicks off an infinite loop. We should change it so that we don't listen for changes on 'startTime' or 'isPlaying'
-        videoFirebase.on('value', function(newValue){
-           console.log('Room.js sees new video');
-           youTubeFirebase.child('startTime').set(Date.now());
-           youTubeFirebase.child('isPlaying').set(true);
-           console.log('newValue', newValue);
-           player.loadVideoById({'videoId': newValue.val()}); 
-        });
-      };
 
-      scope.$watch('videoid', function (newValue, oldValue) {
-        if (newValue !== oldValue) {
-          console.log('setting new video value');
-          var firebase = new $window.Firebase(config.firebase.url+'/youTube');
-          firebase.child('startTime').set(Date.now());
-          firebase.child('isPlaying').set(true);
-          firebase.child('currentVideo').set(newValue); 
+        var youTubePlayerReady = function(player){
+          console.log("YouTube player is ready")
+          videoFirebase.on('value', function(newValue){
+            console.log('player = ', player);
+            // Check the newValue length (youtube link) to see if it exists
+            // videoFirebase.on is geting triggered on the initial load which we don't want,
+            //   this is a cheap fix around it
+            if(newValue.val().length > 0){
+              youTubeFirebase.child('startTime').set(Date.now());
+              player.loadVideoById({'videoId': newValue.val()}); 
+            }
+          });
         }
-      });
+      };
     }
   };
 });
