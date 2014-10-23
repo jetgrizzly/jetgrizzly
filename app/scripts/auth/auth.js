@@ -1,63 +1,62 @@
 'use strict';
 /*jshint -W079 */
 (function(){
-var module = angular.module('jetgrizzlyApp.Auth', ['ui.router','firebase']);
+var module = angular.module('jetgrizzlyApp.Auth', ['ui.router', 'firebase']);
 var previousLocation = null;
 module.config(function ($stateProvider) {
   $stateProvider.state('login', {
     url: '/login',
     parent: 'app',
     templateUrl: 'views/auth/login.html',
-    controller: function ($scope, SimpleLogin, $state, $stateParams) {
-      $scope.user = {};
-      $scope.login = function() {
-        SimpleLogin.login($scope.user.email, $scope.user.password)
-          .then(function(user) {
-            $state.go('lobby', $stateParams, {
-              reload: true
-            });
-          });
-      };
-    }
+    controller: 'LoginController'
   });
   $stateProvider.state('register', {
     url: '/register',
     parent: 'app',
     templateUrl: 'views/auth/register.html',
-    controller: function ($scope, $state, SimpleLogin, $stateParams) {
-      $scope.user = {};
-      $scope.registerUser = function() {
-        SimpleLogin.createAccount($scope.user.email, $scope.user.password)
-          .then(function(user) {
-            console.log(user, 'Registered');
-            $state.go('lobby', $stateParams, {
-              reload: true
-            });
-          });
-      };
-    }
+    controller: 'RegisterController'
   });
   $stateProvider.state('logout', {
     url: '/logout',
     parent: 'app',
-    controller: function (SimpleLogin, $state, $scope, $stateParams) {
-        SimpleLogin.logout();
-        $state.go('login', $stateParams, {
+    controller: 'LogoutController'
+  });
+});
+module.controller('LoginController', function ($scope, SimpleLogin, $state, $stateParams) {
+  $scope.user = {};
+  $scope.login = function() {
+    SimpleLogin.login($scope.user.email, $scope.user.password)
+      .then(function(user) {
+        $state.go('lobby', $stateParams, {
           reload: true
         });
-      }
+      });
+  };
+});
+module.controller('RegisterController', function ($scope, $state, SimpleLogin, $stateParams) {
+  $scope.user = {};
+  $scope.registerUser = function() {
+    SimpleLogin.createAccount($scope.user.email, $scope.user.password)
+      .then(function(user) {
+        console.log(user, 'Registered');
+        $state.go('lobby', $stateParams, {
+          reload: true
+        });
+      });
+  };
+});
+module.controller('LogoutController', function (SimpleLogin, $state, $scope, $stateParams) {
+  SimpleLogin.logout();
+  $state.go('login', $stateParams, {
+    reload: true
   });
-})
-  .factory('SimpleLogin', function ($timeout, $q, config,$firebaseSimpleLogin, $rootScope, $window) {
-  var ref = new $window.Firebase(config.firebase.url+'/');
+});
+module.factory('SimpleLogin', ['$timeout', '$window', '$firebaseSimpleLogin', '$rootScope', function ($timeout, $window, $firebaseSimpleLogin, $rootScope) {
+  var ref = new $window.Firebase('https://blistering-heat-6745.firebaseio.com');
   var auth = $firebaseSimpleLogin(ref);
-  // var listeners = [];
   var statusChange = function() {
     functions.getUser().then(function(user) {
       functions.user = user || null;
-      // angular.forEach(listeners, function(fn) {
-      //   fn(user || null);
-      // })
     });
   };
   var functions = {
@@ -83,27 +82,12 @@ module.config(function ($stateProvider) {
           return functions.login(email, pass);
         });
     },
-    // watch: function(cb, $scope) {
-    //   functions.getUser().then(function(user) {
-    //     cb(user);
-    //   });
-    //   listeners.push(cb);
-    //   var unbind = function() {
-    //     var i = listeners.indexOf(cb);
-    //     if (i > -1) {listeners.splice(i,1); }
-    //   };
-    //   if ($scope) {
-    //     $scope.$on('$destroy', unbind);
-    //   }
-    //   return unbind;
-    // }
   };
-
   $rootScope.$on('firebaseSimpleLogin:login', statusChange);
   $rootScope.$on('firebaseSimpleLogin:logout', statusChange);
   statusChange();
-
   return functions;
-});
-
+}]);
 })();
+
+
