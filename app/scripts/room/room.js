@@ -147,7 +147,13 @@ var module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function
           });
         }
       };
+
+      // In case you browse to another menu, this will reload the player
+      if($window.YT !== undefined){
+          $window.onYouTubeIframeAPIReady();
+      }
     }
+
   };
-});
+  });
 })();
