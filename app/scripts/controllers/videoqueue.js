@@ -42,8 +42,17 @@ angular.module('jetgrizzlyApp')
 
     $scope.addToQueue = function(item) {
       console.log('Link added: '+item);
-      $scope.queue.$add(item);
-      console.log('Queue size: '+$scope.queue.length);
+      $scope.queue.$add(item).then(function(){
+        console.log('Queue size: '+$scope.queue.length+'; Player is in state: '+$scope.playerState);
+        //The if statement below never gets triggered because playerState never
+        //gets set to 0 somehow... or it gets set back to 1 insanely quickly...
+        if ($scope.queue.length === 1 && $scope.playerState === 0) {
+          var newVid = $scope.queue[0].$value.split('v=')[1];
+          console.log('Newvid is: ', newVid);
+          $scope.removeFirst();
+          videoRef.child('currentVideo').set(newVid);
+        }
+      });
 
       //This function needs to know: 1) If there is a video currently playing, 2) The current size of the queue
       //If queue.length > 0, push item into queue
@@ -52,6 +61,8 @@ angular.module('jetgrizzlyApp')
     };
 
     $scope.removeFirst = function() {
-      $scope.queue.$remove($scope.queue[0]);
+      $scope.queue.$remove($scope.queue[0]).then(function(){
+        console.log('Queue size: '+$scope.queue.length+'; Player is in state: '+$scope.playerState);
+      });
     };
   }]);

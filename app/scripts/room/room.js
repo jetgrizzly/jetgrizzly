@@ -66,10 +66,21 @@ module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function ($s
               events: {
                 'onStateChange': function(event){
                   console.log('youtube player has a stateChange');
-                  console.log('Event data ', event.data);
-                  if(event.data === 0){
+                  if (event.data === 0){
                     console.log('youtube player video ended');
+                    $rootScope.playerState = 1;
                     $rootScope.$broadcast('videoEnded');
+                  } else if (event.data === 1) {
+                    console.log('Player is playing');
+                    $rootScope.playerState = 1;
+                  } else if (event.data === 2) {
+                    console.log('Player is paused');
+                    $rootScope.playerState = 2;
+                  } else if (event.data === 3) {
+                    console.log('Player is buffering');
+                    $rootScope.playerState = 3;
+                  } else {
+                    console.log(event.data);
                   }
                 }
               }
@@ -87,10 +98,21 @@ module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function ($s
               events: {
                 'onStateChange': function(event){
                   console.log('youtube player has a stateChange');
-                  console.log('Event data ', event.data);
-                  if(event.data === 0){
+                  if (event.data === 0){
                     console.log('youtube player video ended');
+                    $rootScope.playerState = 0;
                     $rootScope.$broadcast('videoEnded');
+                  } else if (event.data === 1) {
+                    console.log('Player is playing');
+                    $rootScope.playerState = 1;
+                  } else if (event.data === 2) {
+                    console.log('Player is paused');
+                    $rootScope.playerState = 2;
+                  } else if (event.data === 3) {
+                    console.log('Player is buffering');
+                    $rootScope.playerState = 3;
+                  } else {
+                    console.log(event.data);
                   }
                 }
               }
