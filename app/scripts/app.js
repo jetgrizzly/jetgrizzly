@@ -35,6 +35,6 @@ angular.module('jetgrizzlyApp', [
 })
 .factory('config',function(){
   return {
-    firebase:{url:'https://dazzling-torch-2714.firebaseio.com'}
+    url:'https://blistering-heat-6745.firebaseio.com'
   };
 });

@@ -8,24 +8,24 @@
  * Controller of the jetgrizzlyApp
  */
 (function(){
-  angular.module('jetgrizzlyApp')
-    .controller('VideoqueueCtrl', ['$rootScope', '$scope', 'userPresence', '$window', 'config', '$firebase', function ($rootScope, $scope, userPresence, $window, config, $firebase) {
-      //Declare variables
-      $scope.totalUsers = 0;
-      // $scope.ytRegex = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+angular.module('jetgrizzlyApp')
+  .controller('VideoqueueCtrl', ['$rootScope', '$scope', 'userPresence', '$window', 'config', '$firebase', function ($rootScope, $scope, userPresence, $window, config, $firebase) {
+    //Declare variables
+    $scope.totalUsers = 0;
+    // $scope.ytRegex = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
 
-      var queueRef = new $window.Firebase(config.firebase.url+'/queue/');
-      var sync = $firebase(queueRef);
-      $scope.queue = sync.$asArray();
+    var queueRef = new $window.Firebase(config.url+'/queue/');
+    var sync = $firebase(queueRef);
+    $scope.queue = sync.$asArray();
 
-      var videoRef = new $window.Firebase(config.firebase.url+'/youTube');
+    var videoRef = new $window.Firebase(config.url+'/youTube');
 
-      //Listen for new users to lobby (emitted from UserPresenceFactory)
-      $scope.$on('onOnlineUser', function() {
-        $scope.$apply(function() {
-          $scope.totalUsers = userPresence.getOnlineUserCount();
-        });
+    //Listen for new users to lobby (emitted from UserPresenceFactory)
+    $scope.$on('onOnlineUser', function() {
+      $scope.$apply(function() {
+        $scope.totalUsers = userPresence.getOnlineUserCount();
       });
+    });
 
     $scope.addToQueue = function(item) {
       console.log('Link added: '+item);

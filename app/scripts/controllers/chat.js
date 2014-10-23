@@ -2,7 +2,7 @@
 
 angular.module('jetgrizzlyApp.chat', ['firebase'])
 	.controller('chatController', function($scope, $window, $firebase, $location, $anchorScroll, config) {
-    var myChat = new $window.Firebase(config.firebase.url+'/messages');
+    var myChat = new $window.Firebase(config.url+'/messages');
     var limit = myChat.limit(30);
     //create an AngularFire reference to the data and download the data into a local object
     var sync = $firebase(limit);
