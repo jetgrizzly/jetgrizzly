@@ -1,4 +1,4 @@
-<div class="fullsize" ng-show="user">
-  <div class="room-chat" ng-include="'views/room/chat.html'" ng-controller="chatController"></div>
+<div class="fullsize">
+  <div class="room-chat" ng-include="'views/room/chat.html'" ng-controller="chatController" ng-show="user"></div>
   <div class='room-content' ng-include="'views/room/playback.html'" ng-controller="VideoqueueCtrl"></div>
 </div>
