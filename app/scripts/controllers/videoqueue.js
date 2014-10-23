@@ -13,11 +13,11 @@ angular.module('jetgrizzlyApp')
     $scope.totalUsers = 0;
     // $scope.ytRegex = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
 
-    var queueRef = new $window.Firebase(config.firebase.url+'/queue/');
+    var queueRef = new $window.Firebase(config.url+'/queue/');
     var sync = $firebase(queueRef);
     $scope.queue = sync.$asArray();
 
-    var videoRef = new $window.Firebase(config.firebase.url+'/youTube');
+    var videoRef = new $window.Firebase(config.url+'/youTube');
 
     //Listen for new users to lobby (emitted from UserPresenceFactory)
     $scope.$on('onOnlineUser', function() {
