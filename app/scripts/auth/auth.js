@@ -1,7 +1,7 @@
 'use strict';
 /*jshint -W079 */
 (function(){
-var module = angular.module('jetgrizzlyApp.Auth', ['ui.router', 'firebase']);
+var module = angular.module('jetgrizzlyApp.Auth', ['firebase.utils', 'ui.router', 'firebase']);
 var previousLocation = null;
 module.config(function ($stateProvider) {
   $stateProvider.state('login', {
@@ -51,9 +51,9 @@ module.controller('LogoutController', function (config, SimpleLogin, $state, $sc
     reload: true
   });
 });
-module.factory('SimpleLogin', ['$timeout', '$window', '$firebaseSimpleLogin', '$rootScope', function ($timeout, $window, $firebaseSimpleLogin, $rootScope) {
-  var ref = new $window.Firebase('https://blistering-heat-6745.firebaseio.com');
-  var auth = $firebaseSimpleLogin(ref);
+module.factory('SimpleLogin', ['fbutil', '$timeout', '$window', '$firebaseSimpleLogin', '$rootScope', function (fbutil, $timeout, $window, $firebaseSimpleLogin, $rootScope) {
+  // var ref = new $window.Firebase(fbutil.ref());
+  var auth = $firebaseSimpleLogin(fbutil.ref());
   var statusChange = function() {
     functions.getUser().then(function(user) {
       functions.user = user || null;
@@ -79,6 +79,7 @@ module.factory('SimpleLogin', ['$timeout', '$window', '$firebaseSimpleLogin', '$
     createAccount: function(email, pass) {
       return auth.$createUser(email, pass)
         .then(function() {
+          console.log("Registering...")
           return functions.login(email, pass);
         });
     },
