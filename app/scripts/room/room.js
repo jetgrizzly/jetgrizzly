@@ -42,7 +42,7 @@ var module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function
       $window.onYouTubeIframeAPIReady = function () {
         var youTubeFirebase = new $window.Firebase(config.firebase.url+'/youTube');
         var videoFirebase = new $window.Firebase(config.firebase.url+'/youTube/currentVideo');
-        var videoObj = $firebase(videoFirebase).$asObject();
+        var stateObj = $firebase(youTubeFirebase).$asObject();
 
         youTubeFirebase.once('value', function(snap){
           var youtubeInfo = snap.val();
