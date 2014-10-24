@@ -134,7 +134,7 @@ var module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function
         });
 
         var youTubePlayerReady = function(player){
-          console.log("YouTube player is ready")
+          console.log('YouTube player is ready');
           videoFirebase.on('value', function(newValue){
             console.log('player = ', player);
             // Check the newValue length (youtube link) to see if it exists
@@ -145,7 +145,7 @@ var module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function
               player.loadVideoById({'videoId': newValue.val()}); 
             }
           });
-        }
+        };
       };
 
       // In case you browse to another menu, this will reload the player
