@@ -12,9 +12,9 @@ angular.module('jetgrizzlyApp')
     var onlineUsers = 0;
 
     //Create firebase references
-    var listRef = new window.Firebase(config.url+'/presence/');
+    var listRef = new window.Firebase(config.firebase.url+'/presence/');
     var userRef = listRef.push(); 
-    var presenceRef = new window.Firebase(config.url+'/.info/connected');
+    var presenceRef = new window.Firebase(config.firebase.url+'/.info/connected');
 
     //Add ourselves to the presence list when online
     presenceRef.on('value', function(snapshot) {
