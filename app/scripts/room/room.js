@@ -59,6 +59,7 @@ var module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function
               playerVars: {
                 autoplay: 1,
                 html5: 1,
+                controls: 0,
                 start: startTime
              },
              //This will allow the view to change in real time
@@ -96,6 +97,7 @@ var module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function
             player = new $window.YT.Player(element.children()[0], {
               playerVars: {
                 autoplay: 0,
+                controls: 0,
                 html5: 1,
               },
               //This will allow the view to change in real time

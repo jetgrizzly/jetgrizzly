@@ -1,9 +1,11 @@
 <div class="row-fluid">
-  <div class="playback" ng-controller="PlayerController">
+  <div class="playback" ng-controller="VideoqueueCtrl">
     <div class="usercount">
       <h4>Current Audience: {{ totalUsers }} Active Users</h4>
     </div>
-    <youtube width="{{yt.width}}" height="{{yt.height}}" videoid="{{yt.videoid}}"></youtube>
+    <div class="playback" ng-controller="PlayerController">
+      <youtube width="{{yt.width}}" height="{{yt.height}}" videoid="{{yt.videoid}}"></youtube>
+    </div>
   
     <div class="queue">
       <form name="queueForm">
