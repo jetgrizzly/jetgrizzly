@@ -53,7 +53,7 @@ module.controller('LogoutController', function (config, SimpleLogin, $state, $sc
 });
 module.factory('SimpleLogin', ['fbutil', '$timeout', '$window', '$firebaseSimpleLogin', '$rootScope', function (fbutil, $timeout, $window, $firebaseSimpleLogin, $rootScope) {
   // var ref = new $window.Firebase(fbutil.ref());
-  var auth = $firebaseSimpleLogin(fbutil.ref());
+  var auth = $firebaseSimpleLogin(fbutil.ref2());
   var statusChange = function() {
     functions.getUser().then(function(user) {
       functions.user = user || null;
