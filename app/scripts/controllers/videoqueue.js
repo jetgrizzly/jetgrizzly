@@ -43,6 +43,9 @@ angular.module('jetgrizzlyApp')
     $scope.addToQueue = function(item) {
       console.log('Link added: '+item);
       $scope.queue.$add(item).then(function(){
+        console.log("scope.item", $scope.item);
+        $scope.item = '';
+        $scope.queueForm.$setPristine();
         console.log('Queue size: '+$scope.queue.length+'; Player is in state: '+$scope.playerState);
         //The if statement below never gets triggered because playerState never
         //gets set to 0 somehow... or it gets set back to 1 insanely quickly...
