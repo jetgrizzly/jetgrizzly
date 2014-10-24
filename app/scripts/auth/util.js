@@ -6,6 +6,6 @@ angular.module('firebase.utils', ['firebase'])
     return ref;
   }
 	return {
-		ref: firebaseRef
+		ref2: firebaseRef
 	};
 });
