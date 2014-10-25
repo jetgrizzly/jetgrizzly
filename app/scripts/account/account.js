@@ -10,12 +10,5 @@ var module = angular.module('jetgrizzlyApp.Account',['ui.router']).config(functi
       $scope.user = user;
     }
   });
-  // $stateProvider.state('register',{
-  //   url:'/register',
-  //   parent: 'guest',
-  //   templateUrl:'views/account/register.html',
-  //   controller:function($scope){
-  //   }
-  // });
 });
 })();
