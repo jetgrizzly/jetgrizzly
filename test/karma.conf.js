@@ -28,7 +28,8 @@ module.exports = function(config) {
       'bower_components/angularfire/dist/angularfire.min.js',
       'app/scripts/*.js',
       'app/scripts/**/*.js',
-      'test/mock/**/*.js',
+      'test/**/*.js',
+      // 'test/mock/**/*.js',
       'test/spec/**/*.js'
     ],
     // list of files / patterns to exclude
