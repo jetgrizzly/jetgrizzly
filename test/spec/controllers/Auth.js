@@ -1,6 +1,5 @@
 'use strict';
 /* jasmine specs for controllers go here - UNIT TESTS*/
-
 describe('jetgrizzlyApp.Auth', function(){
   var scope;
   beforeEach(function() {
@@ -8,7 +7,9 @@ describe('jetgrizzlyApp.Auth', function(){
   });
   describe('LoginController', function() {
     beforeEach(inject(function ($rootScope, $controller) {
+      //need to make a new scope with module
       scope = $rootScope.$new();
+      //specify the controller and use that scope
       $controller('LoginController', {$scope: scope});
     }));
     it('should define login function', function() {

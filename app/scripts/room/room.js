@@ -2,7 +2,6 @@
 /*jshint -W020 */
 (function(){
 var module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function ($stateProvider) {
-// module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function ($stateProvider) {
   $stateProvider.state('lobby', {
     url: '/',
     parent: 'app',
@@ -30,31 +29,25 @@ var module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function
       width: '@',
       videoid: '@'        
     },
-
     //template to put inside of directive
     template: '<div></div>',
     link: function (scope, element) {
       //Load the iFrame player API code asynchronously
       var tag = element.append('<script src="https://www.youtube.com/iframe_api">');
-
       var player;
-
       $window.onYouTubeIframeAPIReady = function () {
         var youTubeFirebase = new $window.Firebase(config.firebase.url+'/youTube');
         var videoFirebase = new $window.Firebase(config.firebase.url+'/youTube/currentVideo');
         var videoObj = $firebase(videoFirebase).$asObject();
-
         youTubeFirebase.once('value', function(snap){
           var youtubeInfo = snap.val();
           console.log('Video currently playing is ', youtubeInfo.isPlaying);
-
           // Check to see if a video is currently playing
           if(youtubeInfo.isPlaying){
             var currentVideo = youtubeInfo.currentVideo;
             var startTime = Math.floor((Date.now() - youtubeInfo.startTime) / 1000);
             console.log('A video is currently playing: '+currentVideo);
             console.log('Start time: '+startTime);
-
             player = new $window.YT.Player(element.children()[0], {
               playerVars: {
                 autoplay: 1,
@@ -134,9 +127,8 @@ var module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function
             });
           }
         });
-
         var youTubePlayerReady = function(player){
-          console.log("YouTube player is ready")
+          console.log('YouTube player is ready');
           videoFirebase.on('value', function(newValue){
             console.log('player = ', player);
             // Check the newValue length (youtube link) to see if it exists
@@ -147,15 +139,13 @@ var module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function
               player.loadVideoById({'videoId': newValue.val()}); 
             }
           });
-        }
+        };
       };
-
       // In case you browse to another menu, this will reload the player
       if($window.YT !== undefined){
           $window.onYouTubeIframeAPIReady();
       }
     }
-
   };
   });
 })();
