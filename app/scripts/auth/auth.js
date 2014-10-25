@@ -28,9 +28,12 @@ module.controller('LoginController', function ($scope, SimpleLogin, $state, $sta
   $scope.login = function() {
     SimpleLogin.login($scope.user.email, $scope.user.password)
       .then(function(user) {
+        console.log($scope.user.email + ' logged in!');
         $state.go('lobby', $stateParams, {
           reload: true
         });
+      }, function(err) {
+        console.log('Wrong email or password!');
       });
   };
 });
@@ -39,14 +42,18 @@ module.controller('RegisterController', function ($scope, $state, SimpleLogin, $
   $scope.registerUser = function() {
     SimpleLogin.createAccount($scope.user.email, $scope.user.password)
       .then(function(user) {
+        console.log($scope.user.email + ' registered!');
         $state.go('lobby', $stateParams, {
           reload: true
         });
+      }, function(err) {
+        console.log('Email already taken!');
       });
   };
 });
 module.controller('LogoutController', function (SimpleLogin, $state, $scope, $stateParams) {
   SimpleLogin.logout();
+  console.log("Logged out!")
   $state.go('login', $stateParams, {
     reload: true
   });
