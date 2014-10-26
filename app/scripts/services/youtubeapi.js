@@ -12,7 +12,6 @@ angular.module('jetgrizzlyApp')
     var d = $q.defer();
     // Load the IFrame Player API code asynchronously.
     // We can use the global document since this will only run once
-    console.log('IRUNONCE');
     var tag = document.createElement('script');
     tag.src = 'https://www.youtube.com/player_api';
     var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -25,7 +24,6 @@ angular.module('jetgrizzlyApp')
 
     return {
       getYT: function(){
-        console.log('returning the promise');
         return d.promise}
     };
   });
