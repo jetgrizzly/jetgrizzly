@@ -53,7 +53,7 @@ module.controller('RegisterController', function ($scope, $state, SimpleLogin, $
 });
 module.controller('LogoutController', function (SimpleLogin, $state, $scope, $stateParams) {
   SimpleLogin.logout();
-  console.log("Logged out!")
+  console.log('Logged out!');
   $state.go('login', $stateParams, {
     reload: true
   });
