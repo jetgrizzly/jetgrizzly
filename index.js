@@ -13,8 +13,8 @@ server.listen(port, ip, function () {
   console.log('Express server listening on %d!', port);
 });
 
-var queueRef = new Firebase('https://dazzling-torch-2714.firebaseio.com/queue/');
-var videoRef = new Firebase('https://dazzling-torch-2714.firebaseio.com/youTube/');
+var queueRef = new Firebase('https://blistering-heat-6745.firebaseio.com/queue/');
+var videoRef = new Firebase('https://blistering-heat-6745.firebaseio.com/youTube/');
 //Will use beenCalled to throttle the number of calls to this listener
 var beenCalled = false;
 
