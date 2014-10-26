@@ -17,7 +17,7 @@ describe('Service: youtubeApi', function () {
     expect(youtubeApi.getYT).not.toBe(undefined);
 
   });
-  it('should resolve the promise when the youtube callback is called', inject(function ($window) {
+  it('should resolve the promise with the YT api when the youtube callback is called', inject(function ($window) {
 
     var cb = jasmine.createSpy('resolve');
     //the return of login should return a promise, with that promise
@@ -25,9 +25,13 @@ describe('Service: youtubeApi', function () {
     youtubeApi.getYT().then(cb);
 
     expect($window.onYouTubePlayerAPIReady).not.toBe(undefined);
-    $window.onYouTubePlayerAPIReady();
+
     expect(cb).not.toHaveBeenCalled();
+
+    // This is done by the youtube api on a real scenario
+    $window.onYouTubePlayerAPIReady();
     $timeout.flush();
+    // It must trigger the promise resolve
     expect(cb).toHaveBeenCalled();
   }));
 
