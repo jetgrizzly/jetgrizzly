@@ -11,7 +11,7 @@ describe('Service: videoQueue', function () {
     videoQueue = _videoQueue_;
   }));
 
-  it('should do something', function () {
+  it('should exist', function () {
     expect(!!videoQueue).toBe(true);
   });
 

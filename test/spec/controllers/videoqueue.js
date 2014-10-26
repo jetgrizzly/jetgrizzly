@@ -23,8 +23,7 @@ describe('Controller: VideoqueueCtrl', function () {
     expect(len).toBe(0);
   });
 
-  it('should attach a list of awesomeThings to the scope', function () {
+  it('should have an addToQueue function', function () {
     expect(scope.addToQueue).not.toBe(undefined);
-    expect(scope.removeFirst).not.toBe(undefined);
   });
 });
