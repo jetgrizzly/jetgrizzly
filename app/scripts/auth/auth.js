@@ -2,7 +2,7 @@
 /*jshint -W079 */
 (function(){
 var module = angular.module('jetgrizzlyApp.Auth', ['firebase.utils', 'ui.router', 'firebase']);
-var previousLocation = null;
+// var previousLocation = null;
 //ui route method, tells which state is to which controller
 module.config(function ($stateProvider) {
   $stateProvider.state('login', {
