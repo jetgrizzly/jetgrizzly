@@ -3,6 +3,6 @@
     {{message.user}}: {{message.text}}
   </li>
 </ul>
-<form class="chat-form form" novalidate name="submitForm" ng-submit="addMessage(user.email, newMessageText);newMessageText='';">
+<form class="chat-form form" novalidate name="submitForm" ng-submit="addMessage(user.email, newMessageText);newMessageText='';" ng-show="user">
   <input class="form-control" name="text" ng-model="newMessageText" placeholder="Chat here!" required></input>
 </form>
