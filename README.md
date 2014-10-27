@@ -21,10 +21,6 @@
 1. [Team](#team)
 1. [Contributing](#contributing)
 
-## Usage
-
-> Some usage instructions
-
 ## Requirements
 
 - Node 0.10.x
@@ -67,6 +63,21 @@ bower install
 1. Angular
 1. Youtube API
 1. Bootstrap
+
+
+### Getting Started
+- All of the server information can be found in doc/architecture.md
+- All of our database information is stored on Firebase. The YouTube player listens for changes in firebase and then it will load the next video in the queue.
+- The server listens to changes on the YouTube player state. When a video ends, it will tell the server to load up the next video
+- The express server acts as the 'master user', and manages all of the Firebase changes. 
+- Currently the app requires that you register and login before you can submit a chat message
+
+
+### Known Bugs
+- If you insert an invalid link, the server will crash and you will have to restart it. Our current regex filter checks to see if a link is a youtube url, but not if it's a valid one. 
+- If the next video in queue is the same as the current video, it will not update
+- Chatroom doesn't scroll to bottom as a default
+
 
 ### Roadmap
 
