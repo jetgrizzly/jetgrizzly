@@ -11,7 +11,6 @@
       <form name="queueForm">
         <input type="text" ng-model="item" ng-minlength="6" ng-pattern="/^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/" class="queueInput" name="vidInput" placeholder="Enter a Youtube URL Here">
         <button class="submit btn btn-default" ng-click="addToQueue(item)">Add</button>
-        <button class="submit btn btn-default" ng-click="removeFirst()">Remove</button>
         <span class="error" ng-show="queueForm.vidInput.$error.minlength">This field is required</span>
         <span class="error" ng-show="queueForm.vidInput.$error.pattern">URL Must be from Youtube</span>
       </form>
