@@ -19,12 +19,19 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'bower_components/angular/angular.js',
+      'bower_components/ui-router/release/angular-ui-router.js',
+      'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
       'bower_components/angular-mocks/angular-mocks.js',
+      'bower_components/firebase/firebase.js',
+      'bower_components/firebase-simple-login/firebase-simple-login.js',
+      'bower_components/mockfirebase/dist/mockfirebase.js',
+      'bower_components/angularfire/dist/angularfire.min.js',
+      'app/scripts/*.js',
       'app/scripts/**/*.js',
-      'test/mock/**/*.js',
+      'test/**/*.js',
+      // 'test/mock/**/*.js',
       'test/spec/**/*.js'
     ],
-
     // list of files / patterns to exclude
     exclude: [],
 

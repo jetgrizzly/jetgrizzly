@@ -1,4 +1,4 @@
-[![Stories in Ready](https://badge.waffle.io/jetgrizzly/jetgrizzly.png?label=ready&title=Ready)](https://waffle.io/jetgrizzly/jetgrizzly)
+[![Stories in Ready](https://badge.waffle.io/jetgrizzly/jetgrizzly.png?label=ready&title=Ready)](https://waffle.io/jetgrizzly/jetgrizzly)[![Build Status](https://travis-ci.org/jetgrizzly/jetgrizzly.svg?branch=master)](https://travis-ci.org/jetgrizzly/jetgrizzly)
 
 # jetgrizzly
 
