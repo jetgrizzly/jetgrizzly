@@ -43,6 +43,7 @@ module.controller('RegisterController', function ($scope, $state, SimpleLogin, $
     SimpleLogin.createAccount($scope.user.email, $scope.user.password)
       .then(function(user) {
         console.log($scope.user.email + ' registered!');
+
         $state.go('lobby', $stateParams, {
           reload: true
         });

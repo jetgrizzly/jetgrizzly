@@ -11,7 +11,7 @@ describe('Service: userPresence', function () {
     userPresence = _userPresence_;
   }));
 
-  it('should do something', function () {
+  it('should exist', function () {
     expect(!!userPresence).toBe(true);
   });
 

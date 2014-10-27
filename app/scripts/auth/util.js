@@ -15,6 +15,6 @@ angular.module('firebase.utils', ['firebase'])
   	}
   };
 	return {
-		ref2: firebaseRef,
+		ref2: firebaseRef
 	};
 });
