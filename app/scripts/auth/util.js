@@ -6,11 +6,12 @@
 angular.module('firebase.utils', ['firebase'])
 .factory('fbutil', function($window, $firebase){
   var firebaseRef = function(link) {
+    var ref;
   	if (link) {
-    	var ref = new $window.Firebase('https://blistering-heat-6745.firebaseio.com' + link);
+    	ref = new $window.Firebase('https://blistering-heat-6745.firebaseio.com' + link);
     	return ref;
     } else {
-    	var ref = new $window.Firebase('https://blistering-heat-6745.firebaseio.com');
+    	ref = new $window.Firebase('https://blistering-heat-6745.firebaseio.com');
   		return ref;
   	}
   };
