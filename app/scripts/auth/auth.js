@@ -1,4 +1,4 @@
-'use strict';
+    'use strict';
 /*jshint -W079 */
 (function(){
 var module = angular.module('jetgrizzlyApp.Auth', ['firebase.utils', 'ui.router', 'firebase']);
