@@ -1,7 +1,7 @@
 'use strict';
 
-describe('Controller: VideoqueueCtrl', function () {
-  var VideoqueueCtrl,
+describe('Controller: VideoQueueController', function () {
+  var VideoQueueController,
     scope,
     len;
 
@@ -12,7 +12,7 @@ describe('Controller: VideoqueueCtrl', function () {
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    VideoqueueCtrl = $controller('VideoqueueCtrl', {
+    VideoQueueController = $controller('VideoQueueController', {
       $scope: scope
     });
 

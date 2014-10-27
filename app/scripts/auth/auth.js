@@ -3,7 +3,7 @@
 (function(){
 var module = angular.module('jetgrizzlyApp.Auth', ['firebase.utils', 'ui.router', 'firebase']);
 // var previousLocation = null;
-//ui route method, tells which state is to which controller
+// ui route method, tells which state is to which controller
 module.config(function ($stateProvider) {
   $stateProvider.state('login', {
     url: '/login',
@@ -61,22 +61,22 @@ module.controller('LogoutController', function (SimpleLogin, $state, $scope, $st
 });
 module.factory('SimpleLogin', ['fbutil', '$timeout', '$window', '$firebaseSimpleLogin', '$rootScope', function (fbutil, $timeout, $window, $firebaseSimpleLogin, $rootScope) {
   var auth = $firebaseSimpleLogin(fbutil.ref2());
-  //when there is a change of state, check to see if there is user
-  //and assign that user or null
+  // when there is a change of state, check to see if there is user
+  // and assign that user or null
   var statusChange = function() {
     functions.getUser().then(function(user) {
       functions.user = user || null;
     });
   };
-  //methods that the controller is using
+  // methods that the controller is using
   var functions = {
     user: null,
     logout: function() {
-      //logout function of angularfire
+      // logout function of angularfire
       auth.$logout();
     },
     getUser: function() {
-      //getCurrentUser function of angularfire
+      // getCurrentUser function of angularfire
       return auth.$getCurrentUser();
     },
     login: function(email, password) {
@@ -86,18 +86,18 @@ module.factory('SimpleLogin', ['fbutil', '$timeout', '$window', '$firebaseSimple
         password: password,
         rememberMe: true
       });
-      //id is returned as a promise object (convenient to use for tests)
+      // id is returned as a promise object (convenient to use for tests)
       return id;
     },
     createAccount: function(email, pass) {
-      //createUser function of angularfire
+      // createUser function of angularfire
       return auth.$createUser(email, pass)
         .then(function() {
           return functions.login(email, pass);
         });
     },
   };
-  //listens for a click of login or logout and then checks if user exists
+  // listens for a click of login or logout and then checks if user exists
   $rootScope.$on('firebaseSimpleLogin:login', statusChange);
   $rootScope.$on('firebaseSimpleLogin:logout', statusChange);
   statusChange();
