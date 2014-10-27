@@ -23,7 +23,7 @@ var getVideoData = function(video,cb){
     var ret = '';
     res.on('data', function(chunk) {
       console.log("Received body data:");
-      ret+=chunk.toString();
+      ret += chunk.toString();
     });
 
     res.on('end', function() {
@@ -38,7 +38,7 @@ var handleNextQueueItem = function(queueSnapshot){
   console.log('The value of the queue is');
   var queue = queueSnapshot.val();
   console.log(queue);
-  if(queue===null){
+  if(queue === null){
     videoRef.set({currentVideo:'',startTime:Date.now(),isPlaying:false},function(){
       console.log('Set the current video to nothingness');
       // wait for next item in queue to continue looping.
@@ -53,7 +53,7 @@ var handleNextQueueItem = function(queueSnapshot){
       remove.remove(function(){
         console.log('removed top vid from queue');
         // wait for this to end to finish looping.
-        stopped=false;
+        stopped = false;
         checkCurrentVideo();
       });
     });
@@ -78,7 +78,7 @@ var checkCurrentVideo = function(){
       var endTime = currentVideo.startTime+res.data.duration*1000;
       var remaining = endTime - Date.now();
 
-      if(remaining<0){
+      if(remaining < 0){
         // handle the next item on the queue if any
         queueRef.startAt().limit(1).once('child_added',handleNextQueueItem);
       } else {

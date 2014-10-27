@@ -41,22 +41,22 @@ angular.module('jetgrizzlyApp')
       getCurrentVideoId: function () {
         return currentVideoObject.currentVideo;
       },
-      getCurrentVideoTime: function(){
+      getCurrentVideoTime: function() {
         return Math.floor((Date.now()-currentVideoObject.startTime)/1000);
       },
-      ready:function(){
+      ready:function() {
         // if the deferredVideoChange is resolved, the video will have startTime
-        if(currentVideoObject.startTime){
+        if(currentVideoObject.startTime) {
           var d = $q.defer();
           // we resolve a promise at once with the current video
           d.resolve(currentVideoObject);
           return d.promise;
-        }else{
+        } else {
           // if not we get the deferred video change promise
           return this.getNextVideo();
         }
       },
-      getNextVideo: function(){
+      getNextVideo: function() {
         return deferredVideoChange.promise;
       }
     };
