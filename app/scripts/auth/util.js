@@ -3,14 +3,14 @@
 // for the auth.js for easier testing. This will allow the making of fake
 // firease instances while spying on auth.js. It can be injected into other modules
 // and used for the same purpose of easier testing.
-angular.module('firebase.utils', ['firebase'])
-.factory('fbutil', function($window, $firebase){
+angular.module('firebase.utils', ['firebase', 'jetgrizzlyApp'])
+.factory('fbutil', function(config, $window, $firebase){
   var firebaseRef = function(link) {
   	if (link) {
-    	var ref = new $window.Firebase('https://blistering-heat-6745.firebaseio.com' + link);
+    	var ref = new $window.Firebase(config.firebase.url + link);
     	return ref;
     } else {
-    	var ref = new $window.Firebase('https://blistering-heat-6745.firebaseio.com');
+    	var ref = new $window.Firebase(config.firebase.url);
   		return ref;
   	}
   };
