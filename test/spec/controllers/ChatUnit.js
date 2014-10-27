@@ -10,7 +10,7 @@ describe('jetgrizzlyApp.chat', function(){
       //need to make a new scope with module
       scope = $rootScope.$new();
       //specify the controller and use that scope
-      $controller('chatController', {$scope: scope});
+      $controller('ChatController', {$scope: scope});
     }));
     it('should define addmessage function', function() {
       expect(typeof scope.addMessage).toEqual('function');
