@@ -9,8 +9,8 @@
  */
 angular.module('jetgrizzlyApp')
   .factory('videoQueue', ['config', '$window', '$firebase', function (config, $window, $firebase) {
-    //Services go here
+    // services go here
 
-    // Public API here
+    // public API here
     return {};
   }]);

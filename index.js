@@ -6,11 +6,11 @@ var Firebase = require("firebase");
 var http = require('http');
 var youtubeData = 'http://gdata.youtube.com/feeds/api/videos/';
 var youtubeQueryParams = '?v=2&alt=jsonc';
-// Serve static files from client/ . This file is copied to dist in production.
+// serve static files from client. This file is copied to dist in production.
 app.use(express.static(__dirname + '/client'));
 
 var server = require('http').createServer(app);
-// Start server
+// start server
 server.listen(port, ip, function () {
   console.log('Express server listening on %d!', port);
 });
@@ -41,7 +41,7 @@ var handleNextQueueItem = function(queueSnapshot){
   if(queue===null){
     videoRef.set({currentVideo:'',startTime:Date.now(),isPlaying:false},function(){
       console.log('Set the current video to nothingness');
-      //wait for next item in queue to continue looping.
+      // wait for next item in queue to continue looping.
       stopped = true;
     });
   }else{
@@ -59,30 +59,30 @@ var handleNextQueueItem = function(queueSnapshot){
     });
   }
 };
-//Checks to see if current video must be removed (finished playing)
+// checks to see if current video must be removed (finished playing)
 var checkCurrentVideo = function(){
   videoRef.once('value', function (snapshot) {
 
-    // Get the current video with its starting time.
+    // get the current video with its starting time
     var currentVideo = snapshot.val();
 
-    // If there is no video currently playing, we don't do anything.
+    // if there is no video currently playing, we don't do anything
     if(currentVideo.currentVideo === ""){
       console.log('Video is nothing now');
       queueRef.startAt().limit(1).once('child_added',handleNextQueueItem);
       return;
     }
 
-    // Get the video data.
+    // get the video data
     getVideoData(currentVideo.currentVideo,function(res){
       var endTime = currentVideo.startTime+res.data.duration*1000;
       var remaining = endTime - Date.now();
 
       if(remaining<0){
-        // Handle the next item on the queue if any.
+        // handle the next item on the queue if any
         queueRef.startAt().limit(1).once('child_added',handleNextQueueItem);
       } else {
-        // This video is fine. Wait and check again once the remaining time is done.
+        // this video is fine. Wait and check again once the remaining time is done
         stopped = false;
         setTimeout(checkCurrentVideo,remaining);
       }
@@ -92,7 +92,7 @@ var checkCurrentVideo = function(){
   });
 
 };
-//To handle case of empty queue and stopped player, listen for added children to queue
+// to handle case of empty queue and stopped player, listen for added children to queue
 queueRef.on('child_added', function(snap) {
   console.log('Child added',stopped);
   if(stopped){
@@ -100,8 +100,8 @@ queueRef.on('child_added', function(snap) {
   }
 });
 
-// This is a function that calls itself to check for video status.
+// this is a function that calls itself to check for video status
 checkCurrentVideo();
 
-// Expose app
+// expose app
 exports = module.exports = app;
