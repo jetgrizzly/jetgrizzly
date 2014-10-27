@@ -41,7 +41,7 @@ var module = angular.module('jetgrizzlyApp.Room', ['ui.router']).config(function
             playerVars: {
               autoplay: 1,
               html5: 1,
-              controls: 1,
+              controls: 0,
               showinfo: 0,
               rel: 0,
               enablejsapi:1,
