@@ -5,7 +5,7 @@ describe('jetgrizzlyApp.chat', function(){
   beforeEach(function() {
     module('jetgrizzlyApp.chat');
   });
-  describe('chatController', function() {
+  describe('ChatController', function() {
     beforeEach(inject(function ($rootScope, $controller) {
       //need to make a new scope with module
       scope = $rootScope.$new();
