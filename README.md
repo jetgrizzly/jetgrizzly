@@ -68,9 +68,10 @@ bower install
 ### Getting Started
 - All of the server information can be found in doc/architecture.md
 - All of our database information is stored on Firebase. The YouTube player listens for changes in firebase and then it will load the next video in the queue.
-- The server listens to changes on the YouTube player state. When a video ends, it will tell the server to load up the next video
+- The server listens to changes on the YouTube player state. When a video ends, it will tell the server to load up the next video.
 - The express server acts as the 'master user', and manages all of the Firebase changes. 
-- Currently the app requires that you register and login before you can submit a chat message
+- Currently the app requires that you register and login before you can submit a chat message.
+- The automatic deployment works off of the develop branch, not the master branch
 
 
 ### Known Bugs
