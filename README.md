@@ -4,11 +4,17 @@
 
 > Providing an open, accessible forum for exchanging videos and interacting online.
 
-## Team
+## Team 1
 
   - __Product Owner__: Alex Jeng
   - __Scrum Master__: Jose Merino
   - __Development Team Members__: Moxi Zhou, Jeff Gladchun
+
+## Team 2
+
+- __Product Owner__: Justin Pinili
+- __Scrum Master__: Will Burgo
+- __Development Team Members__: Oleg Yanchinskiy, Adam Back
   
 ## Table of Contents
 
