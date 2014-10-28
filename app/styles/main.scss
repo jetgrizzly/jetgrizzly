@@ -82,7 +82,8 @@ button.submit {
   overflow:scroll;
   border-top: 10px;
   top: 5px;
-  width: $chat-width;
+  width: 370px;
+  bottom:$navbar-height*2;
   height:80%;
 }
 .chat-message{
