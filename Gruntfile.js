@@ -369,7 +369,7 @@ module.exports = function (grunt) {
       },
       heroku: {
         options: {
-          remote: 'git@heroku.com:jetgrizzlydev.git',
+          remote: 'git@heroku.com:scheming-grizzly-jets.git',
           branch: 'master'
         }
       }
