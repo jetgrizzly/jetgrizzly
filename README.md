@@ -64,6 +64,8 @@ bower install
 1. Youtube API
 1. Bootstrap
 
+More info: [Architecture](https://github.com/jetgrizzly/jetgrizzly/blob/master/doc/architecture.md)
+
 
 ### Getting Started
 - All of the server information can be found in doc/architecture.md
