@@ -10,7 +10,10 @@
 angular.module('jetgrizzlyApp')
   .factory('playerState', function (config, $window, $q) {
     var youtubeRef = new $window.Firebase(config.firebase.url+'/youTube');
-    var currentVideoObject  = {isPlaying:false,currentVideo:""};
+    var currentVideoObject  = {
+      isPlaying:false,
+      currentVideo:""
+    };
 
     // video change is deferred so that player plays next when appropiate
     var deferredVideoChange = $q.defer();
