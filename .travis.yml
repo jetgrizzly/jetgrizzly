@@ -10,4 +10,4 @@ after_success:
   - bash ./travis/deploy_heroku.sh
 env:
   global:
-    secure: "EV83RaeBdbR9w6CIe5uUM1X0Qs36Ty+5hiXRZbJK075Sf3qiHcuqaHbILmcS8QIup9zWoY/580tAH8Ls8c8cAvYYhfZPoqulbf6VFmNFfz7su3fZs/r4nAJ+dVIK6Gzwm9wYBm9+eiJVOYrU+CTT5+JxyqNIBwfH8C34Gnk5hiI="
+    secure: "VYDtp46F1y7Rl4+J7v1L4K+ribZK5o01tdN74rgVlYvuMNSnyQ2YzeL6Dyy/v/oZCW8pV24BDxO12PslEwuU9N77vpDAJ5jl/ppOSusnqkfSFB3zQfDZXXdP7ncOUnJaJuxMIDDes7j2QNPSO4LEcBT3ecv9xw5/suwBBfNAMuo="
