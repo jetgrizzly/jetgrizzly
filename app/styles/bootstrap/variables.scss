@@ -189,13 +189,14 @@ $input-bg:                       $kuler-second !default;
 $input-bg-disabled:              $gray-lighter !default;
 
 //** Text color for `<input>`s
-$input-color:                    $gray !default;
+$input-color:                    darken($gray-lighter, 10%) !default;
 //** `<input>` border color
-$input-border:                   #ccc !default;
+$input-border:                   darken(#ccc, 10%) !default;
 //** `<input>` border radius
 $input-border-radius:            $border-radius-base !default;
 //** Border color for inputs on focus
-$input-border-focus:             #66afe9 !default;
+/*$input-border-focus:             #66afe9 !default;*/
+$input-border-focus:             lighten($brand-primary, 10%);
 
 //** Placeholder text color
 $input-color-placeholder:        $gray-light !default;
@@ -347,7 +348,7 @@ $container-lg:                 $container-large-desktop !default;
 
 // Basics of a navbar
 $navbar-height:                    50px !default;
-$navbar-margin-bottom:             $line-height-computed !default;
+$navbar-margin-bottom:             0 !default;
 $navbar-border-radius:             $border-radius-base !default;
 $navbar-padding-horizontal:        floor(($grid-gutter-width / 2)) !default;
 $navbar-padding-vertical:          (($navbar-height - $line-height-computed) / 2) !default;

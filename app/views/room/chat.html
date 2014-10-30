@@ -1,8 +1,17 @@
-<ul class="list-unstyled chat-messages">
+<div class="row">
+<ul class="list-unstyled chat-messages col-xs-12">
   <li class="chat-message" ng-model="messages" ng-repeat="message in messages">
     {{message.user}}: {{message.text}}
   </li>
 </ul>
-<form class="chat-form form" novalidate name="submitForm" ng-submit="addMessage(user.email, newMessageText);newMessageText='';" ng-show="user">
-  <input class="form-control" name="text" ng-model="newMessageText" placeholder="Chat here!" required></input>
+</div>
+<div class="row">
+<form class="col-xs-12 chat-form form" novalidate name="submitForm" ng-submit="addMessage(user.email, newMessageText);newMessageText='';" ng-show="user">
+  <div class="input-group">
+    <input class="form-control" name="text" ng-model="newMessageText" placeholder="Chat here!" required></input>
+    <span class="input-group-addon msggroup">
+      <button class="btn btn-primary sendbutton" type="submit">Send</button>
+    </span>
+  </div>
 </form>
+</div>
