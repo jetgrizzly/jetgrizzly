@@ -1,14 +1,18 @@
-<header class="navbar navbar-inverse navbar-fixed-top">
-  <a class="navbar-brand" ui-sref="lobby">jetgrizzly</a>
-  <ul class="nav navbar-nav">
-    <li><a ui-sref="account" ng-show="user">MyAccount</a></li>
-    <li><a ui-sref="register" ng-show="!user">Register</a></li>
-    <li><a ui-sref="login" ng-show="!user">Log In</a></li>
-    <li><a ui-sref="logout" ng-show="user">Log Out</a></li>
-  </ul>
+<header class="navbar navbar-inverse">
+  <div class="navbar-header">
+    <a class="navbar-brand" ui-sref="lobby">QueueTube</a>
+  </div>
+  <div class="collapse navbar-collapse">
+    <ul class="nav navbar-nav">
+      <li><a ui-sref="account" ng-show="user">MyAccount</a></li>
+      <li><a ui-sref="register" ng-show="!user">Register</a></li>
+      <li><a ui-sref="login" ng-show="!user">Log In</a></li>
+      <li><a ui-sref="logout" ng-show="user">Log Out</a></li>
+    </ul>
+  </div>
 </header>
-<div id="maincontainer" ui-view>
+<div class="container-fluid main" ui-view>
 </div>
-<div class="footer navbar navbar-inverse navbar-fixed-bottom">
-  <p><span class="glyphicon glyphicon-heart"></span> Created by team jetgrizzly: Alex Jeng, Jose Merino, Moxi Zhou, Jeff Gladchun</p>
+<div class="footer">
+  <p><span class="glyphicon glyphicon-heart"></span> Created by team Amber Elk</p>
 </div>

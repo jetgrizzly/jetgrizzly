@@ -1,5 +1,18 @@
-<form ng-submit="registerUser(user.email, user.password)">
-  <input type="email" ng-model="user.email" placeholder="Email">
-  <input type="password" ng-model="user.password" placeholder="Password">
-  <input type="submit" value="Register"/>
+<h3 class="text-center">Register</h3>
+<form ng-submit="registerUser(user.email, user.password)" class="row row-centered authformmain">
+  <div class="row row-centered">
+  <div class="form-group col-xs-11 col-sm-6 col-md-5 col-centered">
+    <label for="useremail">Email</label>
+    <input type="email" class="form-control authform" name="useremail" ng-model="user.email" placeholder="Email">
+  </div>
+  </div>
+  <div class="row row-centered">
+  <div class="form-group col-xs-11 col-sm-6 col-md-5 col-centered">
+    <label for="userpass">Password</label>
+    <input name="userpass" type="password" class="form-control authform" ng-model="user.password" placeholder="Password">
+  </div>
+  </div>
+  <div class="row row-centered">
+  <button class="col-xs-10 col-sm-4 col-md-3 col-centered btn btn-primary authbtn" type="submit">Register</button>
+  </div>
 </form>
