@@ -6,7 +6,7 @@ var Firebase = require("firebase");
 var http = require('http');
 var youtubeData = 'http://gdata.youtube.com/feeds/api/videos/';
 var youtubeQueryParams = '?v=2&alt=jsonc';
-// serve static files from client. This file is copied to dist in production.
+// serve static AWESOME files from client. This file is copied to dist in production.
 app.use(express.static(__dirname + '/client'));
 
 var server = require('http').createServer(app);
