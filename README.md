@@ -79,7 +79,7 @@ More info: [Architecture](https://github.com/jetgrizzly/jetgrizzly/blob/master/d
 ### Known Bugs
 - If you insert an invalid link, the server will crash and you will have to restart it. Our current regex filter checks to see if a link is a youtube url, but not if it's a valid one. 
 - If the next video in queue is the same as the current video, it will not update
-- Chatroom doesn't scroll to bottom as a default
+- Chatroom doesn't scroll to botto,klfjlejklajflfjm as a default
 
 
 ### Roadmap
