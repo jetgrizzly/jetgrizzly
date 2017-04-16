@@ -20,7 +20,13 @@ Besides using the generator, we modified some parts to make deployment easier.
 ## Getting started
 Fork the repo and install dependencies. You need to have ruby installed and the sass gem.
 
+Check to see if you have Ruby installed by typing 'ruby -v' in the terminal. If ruby is installed, it will listed the current version number.
+
+Use this resource to install Ruby: https://www.ruby-lang.org/en/installation/
+
 `gem install compass` then `npm install && bower install`
+
+You may need to install the gem using sudo rights.
 
 To start development just do `grunt serve`
 

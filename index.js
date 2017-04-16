@@ -14,7 +14,7 @@ var server = require('http').createServer(app);
 server.listen(port, ip, function () {
   console.log('Express server listening on %d!', port);
 });
-var config = {firebase:{url:'https://blistering-heat-6745.firebaseio.com'}};
+var config = {firebase:{url:'https://scheming-lions.firebaseio.com'}};
 var queueRef = new Firebase(config.firebase.url+'/queue/');
 var videoRef = new Firebase(config.firebase.url+'/youTube/');
 
